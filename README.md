@@ -4,7 +4,7 @@ This repo provides an introductory overview of the [VMware NSX Modules for Ansib
 
 - Section-1 [Introduction](./1-Intro/README.md)
 - Section-2 [Lab Reference](./2-LabReference/README.md)
-- Section-3 [Lab Setup]()
+- Section-3 [Lab Setup](./3-Lab1-LabPrep/README.md)
 - Section-4 [NSX Deploy & Register]()
 - Section-5 [Discovery]()
 - Section-6 [Initial Setup]()
