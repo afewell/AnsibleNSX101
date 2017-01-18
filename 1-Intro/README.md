@@ -1,5 +1,5 @@
 # Using Ansible with VMware NSX
-This training module will focus primarily on hands-on examples and will provide the reader with step-by-step instructions to walk through installation and basic usage the NSX Ansible Module. Because this is primarily a hands-on course, users should ensure they have access to a lab environment and the software used, as detailed in [Lab1a](https://github.com/afewell/AnsibleNSX101/tree/master/3-Lab1-LabPrep/Lab1a-TopologyReview).
+This training module will focus primarily on hands-on examples and will provide the reader with step-by-step instructions to walk through installation and basic usage the [VMware NSX Modules for Ansible](https://github.com/vmware/nsxansible). Because this is primarily a hands-on course, users should ensure they have access to a lab environment with licensed access to the required software, as detailed in [Lab1a](https://github.com/afewell/AnsibleNSX101/tree/master/3-Lab1-LabPrep/Lab1a-TopologyReview).
 
 ## Prerequisites
 1. Before taking this training, you should have a good technical understanding of VMware NSX. The course will cover automated installation, setup and basic operational configuration and assumes the users already understand the related underlying concepts in NSX.
@@ -11,4 +11,4 @@ This training module will focus primarily on hands-on examples and will provide 
 ## Getting Started
 To Get Started, review the [Lab Reference Materials]() and then proceed to the [Lab Setup ]().
 
-In the future, I hope to add more slides and video to provide an overview of the course, but these arent ready yet. Please check back here for updates. 
+In the future, I hope to add more slides and video to provide an overview of the course, but these arent ready yet. Please check back here for updates.
