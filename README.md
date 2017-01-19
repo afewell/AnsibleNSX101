@@ -9,5 +9,3 @@ This repo provides an introductory overview of the [VMware NSX Modules for Ansib
 - Section-5 [Initial Setup](Lab4-InitialConfig/README.md)
 - Section-6 [Networking](Lab5-Networking/README.md)
 - Section-7 [NSX Ansible Roles](Lab6-Roles/README.md)
-- Section tool
-- you suck balls
