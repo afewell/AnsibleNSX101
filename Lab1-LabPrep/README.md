@@ -11,12 +11,12 @@ Lab-1b provides detailed setup instructions to build the lab environment with vC
 
 ## Sub-Sections:
 
--  Lab-1a Topology details, Hardware/software requirements
--  Lab-1b Building the base lab topology in vCloud Director
--  Lab-1c Ansible and NSX Ansible Module Installation
+-  [Lab-1a](Lab1a-TopologyReview/) Topology details, Hardware/software requirements
+-  [Lab-1b](Lab1b-vCDSetup/) Building the base lab topology in vCloud Director
+-  [Lab-1c](Lab1c-AnsibleInstall) Ansible and NSX Ansible Module Installation
 
 ## VMware Employees:
-I have created vApp Templates in OneCloud that you can load rather than building the environment from scratch.
--  The first vApp Template is named "AnsibleNSX" including an Ubuntu server ready to install ansible onto.
--  The second vApp Template is named "AnsibleNSX_prepped", and already has Ansible and NSX Modules installed. This is useful if you dont want to install ansible, or if you are returning to the lab to finish later excercices and dont need to repeat the install.
--   Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog. If you do not have access to this catalog, you can open a ticket with the OneCloud Service Desk (Look for OCSN OneCloud Service Now in Workspace ONE to open ticket) to have the template moved to a partition you can access, or if you need further assistance, email me - afewell at vmware. 
+OneCloud Templates are available for you to use if you prefer that to building the environment from scratch.
+-  The first vApp Template is named "AnsibleNSX" including an Ubuntu server ready to install ansible onto. If you use this template, complete Lab-1c prior to moving on to Lab 2
+-  The second vApp Template is named "AnsibleNSX_prepped", and already has Ansible and NSX Modules installed. This is useful if you dont want to install ansible, or if you are returning to the lab to finish later excercices and dont need to repeat the install. If you use this template, you can skip all of Lab-1 and proceed to Lab-2.
+-   Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog. If you do not have access to this catalog, you can open a ticket with the OneCloud Service Desk (Look for OCSN OneCloud Service Now in Workspace ONE to open ticket) to have the template moved to a partition you can access, or if you need further assistance, email me - afewell at vmware.

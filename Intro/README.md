@@ -9,6 +9,6 @@ This training module will focus primarily on hands-on examples and will provide 
 5. Students need to provide their own licensed access to any software used in this course. This course provides instruction for both Open Source and Commercial Software and provides no licensing or access to any software.
 
 ## Getting Started
-To Get Started, proceed to the [Lab Setup ](Lab1-LabPrep/) section.
+To Get Started, go to the [Lab Setup ](../Lab1-LabPrep/) section, and then proceed through the labs in order. Once you complete the lab setup, there are no specific dependencies between labs, so feel free to jump into any specific lab - but beware that some technical explanations may be provided in earlier labs that are not repeated in later labs so in general I recommend that you go through the labs in order. 
 
-I hope in time to add more slides and video lectures to provide more detailed explanations about the technologies used in the labs, but these arent ready yet. Please check back here in the future for updates.
+I hope in time to add more slides and videos to provide more detailed explanations about the technologies used in the labs, but these arent ready yet. Please check back here in the future for updates.
