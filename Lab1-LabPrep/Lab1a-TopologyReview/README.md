@@ -1,5 +1,7 @@
 # Lab Toplogy Review
 
+The lab used to develop the excercises in this course will be referred to as the "Reference Lab" throughout the course materials
+
 ## Software Requirements
 
 The following software is required to complete the lab excercises in this course. This course provides no access to any software, all users of this course are expected to provide their own licensed access to software and are responsible for ensuring their own compliance with licensing rules for the software.
@@ -8,8 +10,8 @@ Please Note that while the VMware Ansible Playbooks can be configured to work ac
 
 ### Mandatory Software:
 -  VMware vCenter Server 6.0 & Platform Services Controller
-  - This lab was developed using VMware vCenter Server Appliance 6.0.0.20000 with an embedded Platform Services Controller.
-  - Other vCenter versions and form factors may also work, but the above version is the only one that has been tested for the lab excercises
+  - Th reference lab was developed using VMware vCenter Server Appliance 6.0.0.20000 with an embedded Platform Services Controller.
+  - Other vCenter versions and form factors may also work, but the above version is the only one that has been tested for the lab excercises.
 - VMware ESXi 6.0.0
   - The specific release used in developing this course was VMKernel Release Build 3620759
 - VMWare NSX Manager 6.2.5
@@ -22,12 +24,12 @@ The following software provides services that are required for the lab excercise
 -  Ubuntu 16_04 Server
   - Used as the Ansible Control Server, Should be fine to use other Linux Distributions
 - FreeNAS 9.3
-  - Used to provide iSCSI services to provide storage back-end for vCenter Shared Storage. The lab excercises only interact with the vCenter shared storage front end, and do not directly interact with any back-end storage services. While the excercises do require shared storage, any supported mechanism to provide shared storage to vCenter environments should work fine.
+  - Used to provide iSCSI services to provide storage back-end for vCenter Shared Storage. The lab excercises only interact with the vCenter shared storage front end, and do not directly interact with any back-end storage services. While the excercises do require shared storage, any supported mechanism to provide shared storage to vCenter environments should work fine. If you need to minimize lab hardware requirements, per the recommendations below you should be able to conduct the lab excercises with a single physical or virtual ESXi host in the lab environment, which would eliminate the shared storage requirement.
 -  Windows Server 2012
   -  In the lab excercises, Windows Server is used for several services:
     -  Active Directory & DNS Services
     -  IIS Services are used only to transfer the NSX Manager OVA file to the Ansible server. Any method of your choice can be used to transfer the file, none of the excercises depend on the method used so long as the file is present on the Ansible Control Server.
-    -  Jump Host: I used a remotely accessed lab to develop the excercises, so I use a Windows Server in the lab as a jump host for accessing and testing connectivity to privately-addressed elements within the lab environment. Depending on how you setup your lab environment, you may not need a jump host. You will at minimum need IP connectivity to vCenter to access the vcenter web client, and need SSH access into the Ansible Server from the terminal you do the excercises on.
+    -  Jump Host: I used a remotely accessed lab to develop the excercises, so I use a Windows Server in the lab as a jump host for accessing and testing connectivity to privately-addressed elements within the lab environment. Depending on how you setup your lab environment, you may not need a jump host. You will at minimum need IP connectivity to the labs vCenter server to access the vcenter web client, and need SSH access into the Ansible Server from the terminal you do the excercises on.
 
 ## Hardware (or virtual hardware) Requirements
 This lab was built using nested virtualization, meaning the underlying physical server uses the ESXi Hypervisor, and on top of that hypervisor, virtual machines are installed with ESXi Hypervisor, which enables an additional layer of virtual machines to be installed on the virtual ESXi hosts.
@@ -51,6 +53,11 @@ Whether you are building a physical or a nested virtualization lab, it should be
 For example, the base lab topology uses 3 ESXi servers, but you could complete all the current lab excercises with a single ESXi physical or virtual host in the lab environment, although you would need to make any needed adjustments yourself.
 
 Similarly you could examine the lab software requirements and attempt to reduce the virtual hardware resources. This lab environment is small and only uses few virtual machines, so software like NSX and vCenter should be very minimally taxed and could likely have hardware resources reduced and still function adequately for the excercises.
+
+### Lab ESXi Host Requirements
+The following image is a screenshot of the nested virtualization reference lab built with vCloud director. While the servers shown in the image are virtual machines, they are setup as functional equivalents of physical servers. This image represents what is in effect the actual _physical_ topology of the lab, at least from the perspective of the software you install and configure in the lab. If you are building a physical lab, build your physical topology exactly as shown in the image. If you are building a nested virtualization lab, also set it up exactly like shown in the image.
+
+![Nested Virtual-Physical Layer Topology](Images/Lab1a-VirtualPhysicalTopology1)
 
 
 ## Topology
