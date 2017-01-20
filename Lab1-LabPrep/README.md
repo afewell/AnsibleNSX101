@@ -3,7 +3,7 @@ This section will provide detailed information on the hardware and software, top
 
 The lab was built using Nested Virtualization, but you can build a fully equivalent lab environment with physical servers, or you can use nested virtualization to simplify the hardware requirements.
 
-The lab used to develop this course was built using VMware vCloud Director, however this is not needed to setup a fully equivalent lab. Lab-1a includes full software requirements. The only commercial software requirements are VMware vSphere and NSX. Windows Server 2012 is also used to provide Web Server, Authention and DNS Services, however open source software could be used to provide equivalent functionality. This course only provides instructions on the setup of Web Server & DNS services for Windows Server 2012.
+The lab used to develop this course was built using VMware vCloud Director, however this is not needed to setup a fully equivalent lab. Lab-1a includes full software requirements. The only commercial software requirements are VMware vSphere and NSX. Windows Server 2012 is also used to provide Web Server, IIS and DNS Services, however open source software could be used to provide equivalent functionality. This course only provides instructions on the setup of Web Server & DNS services for Windows Server 2012.
 
 Lab-1b provides detailed setup instructions to build the lab environment with vCloud Director. This course does not provide detailed setup instructions for building a lab outside of vCloud Director, however Lab-1a provides all of the requirements and information needed for users to setup their own lab.
 
