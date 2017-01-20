@@ -133,4 +133,4 @@ This may seem strange at first as it is different from how networking is configu
 
 To replicate the virtual-physical network environment, simply connect each virtual-physical host nic into a single common network segment or vlan. Different subnets will use this common segment. IP addressing and configuration will be provided in Lab-1b.
 
-## [Click here to proceed to the next lab](/Lab1b-BaseSoftwareConfig)
+## [Click here to proceed to the next lab](../Lab1b-BaseSoftwareConfig/)
