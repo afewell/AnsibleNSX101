@@ -1,8 +1,8 @@
-# Lab Toplogy Review
+# Lab Physical Toplogy Review
 
 -  Notes:
   - The lab used to develop the excercises in this course will be referred to as the "Reference Lab" throughout the course materials
-  - The reference lab was built in a nested virtualization environment, which provides a layer of virtual machines that are functionally equivalent to physical machines. For example, the reference lab uses virtual machines with ESXi installed, allowind an additional layer of virtual machines to be installed on the virtual ESXi host. This lab will refer to this layer as the "virtual-physical layer". Any simulated physical servers in this layer will be referred to as "virtual-physical hosts". Any users building this lab in a physical environment can consider the virtual-physical layer to be equivalent to how you would construct the physical layer in a purely physical environment.
+  - The reference lab was built in a nested virtualization environment, which provides a layer of virtual machines that are functionally equivalent to physical machines. For example, the reference lab uses virtual machines with ESXi installed, allowing an additional layer of virtual machines to be installed on the virtual ESXi host. This lab will refer to this layer as the "virtual-physical layer". Any simulated physical servers in this layer will be referred to as "virtual-physical hosts". Any users building this lab in a physical environment can consider the virtual-physical layer to be equivalent to how you would construct the physical layer in a purely physical environment.
 
 ## Software Requirements
 
@@ -129,8 +129,8 @@ The following list provides details of the hardware configuration used for each 
 ## Topology & Networking considerations
 If you look at the Nested Virtual-Physical Topology image in the "Lab ESXi Host Requirements" section above, you will see that all of the virtual-physical hosts are connected to a single network segment.
 
-This may seem strange at first as it is different from how networking is configured in production environments where seperate VLANs are provisioned for each subnet. While VLAN segmentation has many benefits, using a single flat vlan or network segment can greatly simplify setup requirements for lab environments. If you configure hosts in different IP subnets to use the same VLAN, each of the hosts on that network will function just as if you had created VLANS for each subnet, but without the need to setup the VLANS. This would not be advised for production environments or for certain types of testing, however for training and feature testing this method is very effective at simplifying lab setup. If you prefer, you can setup seperate vlans or network segments for each subnet, as long as routing services are fully configured where needed the lab exercises should work fine.
+This may seem strange at first as it is different from how networking is configured in production environments where seperate VLANs are provisioned for each subnet. While VLAN segmentation has many benefits, using a single flat vlan or network segment can greatly simplify setup requirements for lab environments. If you configure hosts in different IP subnets to use a single common VLAN or network segment, each of the hosts on that network will function just as if you had created VLANS for each subnet, but without the need to setup the VLANS. This would not be advised for production environments or for certain types of testing, however for training and feature testing this method is very effective at simplifying lab setup. If you prefer, you can setup seperate vlans or network segments for each virtual-physical subnet, as long as routing services are fully configured where needed the lab exercises should work fine.
 
 To replicate the virtual-physical network environment, simply connect each virtual-physical host nic into a single common network segment or vlan. Different subnets will use this common segment. IP addressing and configuration will be provided in Lab-1b.
 
-## [Click here to proceed to the next lab](../Lab1b-BaseSoftwareConfig/)
+## [Click here to proceed to Lab-1b](../Lab1b-BaseSoftwareConfig/)
