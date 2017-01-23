@@ -99,4 +99,5 @@ The base lab includes a standard Ubuntu 16.04 Server, freshly installed with Ope
 
 The IP addressing and Routing configuration for the reference lab has some settings that are specific to VMware's internal vCloud Director environment and may not be needed in other labs. For those using vCloud director, these additional settings are covered in Lab-1c.
 
-## [Click here to proceed to the next lab]()
+## [vCloud Director Users Click Here To Proceed To Lab-1C - vCloud Director Setup](../Lab1c-vCDSetup/)
+## [All Other Users Click Here To proceed To Lab-1D - Ansible Installation](../Lab1d-AnsibleInstall/)
