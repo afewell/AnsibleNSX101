@@ -50,7 +50,7 @@ For this lab, ESXi was installed with only basic configuration sufficient to con
   - Mount point: 10.10.20.60:/mnt/NFSA, fdba:dd06:f00d:aa20::60:/mnt/NFSA
 4. The following screen shots provide additional details needed for the base vCenter configuration. Step-by-step instructions are not provided, to replicate the base vcenter configuration ensure that you vCenter configuration settings match those shown in the screen shots:
 
-![Hosts and Clusters](Images/BaseVcenterHostsClusters)
+![Hosts and Clusters](Images/BaseVcenterHostsClusters.png)
 
 
 
