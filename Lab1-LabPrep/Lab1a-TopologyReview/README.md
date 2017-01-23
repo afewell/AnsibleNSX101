@@ -13,6 +13,7 @@ Please Note that while the VMware Ansible Playbooks can be configured to work ac
 ### Mandatory Software:
 -  VMware vCenter Server 6.0 & Platform Services Controller
   - The reference lab was developed using VMware vCenter Server Appliance 6.0.0.20000 with an embedded Platform Services Controller.
+  - Enterprise Plus License Used
   - Other vCenter versions and form factors may also work, but the above version is the only one that has been tested for the lab excercises.
 - VMware ESXi 6.0.0
   - The specific release used in developing this course was VMKernel Release Build 3620759
@@ -73,19 +74,25 @@ The following list provides details of the hardware configuration used for each 
   -  Operating System: VMware ESXi 6.0.0
   -  CPU: 4 Virtual CPU's, one core per CPU
   -  Memory: 32 GB (While untested for course excercises, 16GB should work fine)
-  -  Hard Drive: 2 GB
+  -  Hard Drives:
+    -  2 GB Local Disk
+    -  80GB iSCSI Disk
   -  NIC: 2 Standard Ethernet NICs
 - esx-02a
   -  Operating System: VMware ESXi 6.0.0
   -  CPU: 4 Virtual CPU's, one core per CPU
   -  Memory: 32 GB (While untested for course excercises, 16GB should work fine)
-  -  Hard Drive: 2 GB
+  -  Hard Drives:
+    -  2 GB Local Disk
+    -  80GB iSCSI Disk
   -  NIC: 2 Standard Ethernet NICs
 - esx-03a
   -  Operating System: VMware ESXi 6.0.0
   -  CPU: 4 Virtual CPU's, one core per CPU
   -  Memory: 8 GB
-  -  Hard Drive: 2 GB
+  -  Hard Drives:
+    -  2 GB Local Disk
+    -  80GB iSCSI Disk
   -  NIC: 2 Standard Ethernet NICs
 - Main Console
   -  Operating System: Windows Server 2012 R2
