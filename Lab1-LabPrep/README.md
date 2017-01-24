@@ -1,11 +1,11 @@
 # Preparing your lab environment
-This section will provide detailed information on the hardware and software, topology and configuration of the lab environment used in this course. To follow along with the step-by-step instructions provided, it is recommended that users seek to replicate as close to the exact environment as possible for the smoothest experience with the lab excercises.
+This section will provide detailed information on the hardware and software, topology and configuration of the lab environment used in this course.
 
-The lab was built using Nested Virtualization, but you can build a fully equivalent lab environment with physical servers, or you can use nested virtualization to simplify the hardware requirements.
+The lab was built using Nested Virtualization, but you can build a fully equivalent lab environment with physical servers, or use nested virtualization to simplify the hardware requirements.
 
-The lab used to develop this course was built using VMware vCloud Director, however this is not needed to setup a fully equivalent lab. Lab-1a includes full software requirements. The only commercial software requirements are VMware vSphere and NSX. Windows Server 2012 is also used to provide Web Server, IIS and DNS Services, however open source software could be used to provide equivalent functionality. This course only provides instructions on the setup of Web Server & DNS services for Windows Server 2012.
+The lab used to develop this course was built using VMware vCloud Director, however this is not needed to setup a fully equivalent lab. Lab-1a includes full software requirements needed to complete the lab exercises.
 
-Lab-1b provides detailed setup instructions to build the lab environment with vCloud Director. This course does not provide detailed setup instructions for building a lab outside of vCloud Director, however Lab-1a provides all of the requirements and information needed for users to setup their own lab.
+This course does not provide detailed setup instructions for building a lab outside of vCloud Director, however Lab-1a provides all of the requirements and information needed for users to setup their own lab.
 
 ## Sub-Sections:
 

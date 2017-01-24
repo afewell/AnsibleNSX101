@@ -6,7 +6,7 @@ The point of this section is to ensure that IP and routing configuration used on
 
 This section does not include instructions on creating the vApp Template used for the reference lab as all needed details to build the vApp are included in Lab-1a and Lab-1B.
 
-__Note:__ If you cannot setup direct IP access from your terminal to the Windows or Ansible servers, you can use the remote terminal access provided by vCloud director. The only inbound NAT services used in the reference lab are for remote access. The Ansible and Windows servers will need internet access to download required files and software, however this can be done with standard PAT and would not require an inbound NAT service or an externally routeable IP Address. 
+__Note:__ If you cannot setup direct IP access from your terminal to the Windows or Ansible servers, you can use the remote terminal access provided by vCloud director. The only inbound NAT services used in the reference lab are for remote access. The Ansible and Windows servers will need internet access to download required files and software, however this can be done with standard PAT and would not require an inbound NAT service or an externally routeable IP Address. If you are configuring your lab in accordance with this note, you may skip this section and simply ensure that the Ansible and Windows servers have outbound internet access.
 
 ![Nested Virtual-Physical Layer Topology](../Lab1a-TopologyReview/Images/Lab1a-VirtualPhysicalTopology1.PNG)
 
@@ -28,13 +28,15 @@ As shown in the above image, each of the hosts in the virtual-physical layer is 
 5. For Both AnsibleCS and Windows Servers:
   -  For the exercises in this course, all hosts in the virtual-physical layer have a management IP on the 192.168.110.0/24 network. Since each host has a direct connection to this network, no additional host routes are needed.
 6. For hosts other than the Ansible and Windows Server:
-  -  The Ansible and Windows server have multiple nics so they can recieve inbound connections from external networks. Accordingly, those hosts have their default gateway set as the edge gateway router (192.168.0.1). All other hosts (other than vPodRouter) have their default gateway set to the vPod Router (192.168.110.1). the vPod Router has a default route to 192.168.0.1, and provides routing services to hosts that are only connected to internal networks.
+  -  The Ansible and Windows server have multiple nics so they can recieve inbound connections from external networks. Accordingly, those hosts have their default gateway set as the edge gateway router (192.168.0.1). All other hosts (other than vPodRouter) have their default gateway set to the vPod Router (192.168.110.1). The vPod Router has a default route to the edge gateway router (192.168.0.1), and provides routing services to virtual-physical hosts that are only connected to internal networks.
 
-### Lab Completion and Verification
+### Lab-1c Completion and Verification
 -  At completion of this section, you should be able to:
-  - Open a remote desktop connection from the terminal you are working on to the Windows Server in the lab environment
-  - Open an SSH session from the terminal you are working on to the Windows Server in the lab environment
+  - Open a remote desktop connection from your terminal to the Windows Server in the lab environment
+  - Open an SSH session from your terminal to the Windows Server in the lab environment
   - Ping from Ansible and Windows Servers to all other virtual-physical hosts on the 192.168.110.0/24 network
   - Ping from Ansible and Windows Servers to the Edge Gateway Router (192.168.0.1)
   - Internet Access from the Ubuntu & Windows Servers
-  - In the reference lab, all hosts have internet access via PAT services provided on the Edge Gateway. This access is not needed for the exercises in this course.
+  - In the reference lab, all virtual-physical hosts have internet access via PAT services provided on the Edge Gateway. You can configure your lab to provide similar access, but is not needed for the exercises in this course.
+
+## [Click here to proceed to Lab-1d](../Lab1d-AnsibleInstall/)
