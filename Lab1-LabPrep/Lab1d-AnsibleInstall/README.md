@@ -1,5 +1,5 @@
 # Ansible Installation and Configuration
-This section will provide step-by-step instructions on the installation and configuration of Ansible, the NSX Modules for Ansible, and any required Dependencies.
+This section will provide step-by-step instructions on the installation and configuration of Ansible, the NSX Modules for Ansible, and required Dependencies.
 
 ## Before you begin
 -  Please Be sure you have completed Labs 1a and 1b
@@ -46,5 +46,50 @@ This section will provide step-by-step instructions on the installation and conf
   -  `cd /usr/share/my_modules`
   -  `sudo git clone https://github.com/vmware/nsxraml`
   -  `sudo git clone https://github.com/vmware/nsxansible`
-## Congratulations, you have completed Lab 1!
+- Prepare the NSX Ansible environment
+  - Please refer to the official documentation for [How to use these modules](https://github.com/vmware/nsxansible#how-to-use-these-modules) for additional details.
+  - The NSX Ansible Modules work by communicating directly from the AnsibleCS server to the vCenter and NSX Manager REST API's.
+    - There is no need to install Ansible on any target hosts or perform key exchanges for the playbooks used in this course.
+    - The only host needed in the Ansible inventory is localhost. The exercises in this course specify localhost directly within each playbook, but if you prefer you can create an entry for localhost in your Ansible Inventory file.
+  - Create a directory you will use to hold the playbook and variable files you will create in this course:
+    - `cd ~`
+    - `mkdir nsxansible`
+    - `cd nsxansible`
+  - Create a subdirectory to hold the example playbook files and copy the files
+    - `mkdir examples`
+    - `cp /usr/share/my_modules/nsxansible/*.yml ./examples/`
+  - Copy the example host file to your home nsxansible directory
+    - `cp /usr/share/my_modules/nsxansible/hosts .`
+  - Verify the hosts file
+    - `cat hosts`
+    - The output should look like this:
+
+
+  ```
+  [localhost]
+  localhost       ansible_connection=local
+
+  [jumphost]
+  10.114.209.37   ansible_ssh_user=localadmin ansible_ssh_private_key_file=~/.ssh/ansible_key
+  ```
+
+  - Note:
+    - The exercises in this course only use the localhost entry, but the sample host file also includes an example of how to specify a jumphost. It is common in production Ansible deployments to use jumphosts to execute plays.
++ Prepare Answer File for NSX Manager Spec
+  * In this exercise you need to use a text editor to create a file. I use vi editor, if you are newer to Linux you may prefer to use the gedit text editor, which you can do by simply replacing any reference in these instructions to `vi` with `gedit`. Or you can use any text editor you prefer. 
+  * Create an answerfile.yml file
+    - `cd ~/nsxansible/`
+    - `vi answerfile.yml`
+  * Edit the file to look like this - making sure to change any variables that are different in your environment:
+    ```
+    nsxmanager_spec:
+      raml_file: '/usr/share/my_modules/nsxraml/nsxvapi.raml'
+      host: 'nsxmanager-01a.corp.local'
+      user: 'admin'
+      password: 'VMware1!'
+    ```
+
+  - __Note:__ At this point in the exercises, you have not yet deployed NSX Manager, so it is important when you deploy it in Lab-2, the host, username and password variable you use here match. 
+
+### Congratulations, you have completed Lab 1!
 ## [Click Here To Proceed To Lab-2](../../Lab2-NSXDeploy/)
