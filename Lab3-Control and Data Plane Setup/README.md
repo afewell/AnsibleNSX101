@@ -18,8 +18,7 @@ Please note the sections in this lab are done in an intentional order that shoul
 VMware NSX uses Controllers to manage and synchronize Data Plane information for logical networks. Before Controllers can be created, you must first define an IP Address Pool that NSX Manager will use to assign IP Addresses to Controllers. 
 
 1. Update answerfile.yml with variables to create IP Pool
-2.  fff
-3. f
+  - When you create an IP Pool, you need to specify the starting and ending IP address, subnet mask, gateway, and DNS server information that will be assigned to the controller by NSX Manager. 
 
 The NSX Ansible Modules works by interacting with the NSX REST API. When you make a call to the API, you are essentially asking it to take some action on some object, and you need to identify which objects you want to modify. For example, typically when you deploy a virtual machine, you need to deploy it into an existing cluster, onto an existing datastore, and connected to an existing portgroup. When using the GUI, you typically click on these values or use their common name, however when making calls to the API, you need to use special values so the API host knows exactly what you want to do. 
 
