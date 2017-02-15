@@ -1,12 +1,35 @@
-## NSX Ansible Discovery Modules
+## NSX Ansible Control & Data Plane Setup
+In the previous lab, you installed NSX Manager and registered it with vCenter. The next step in the setup of NSX is to install and configure the Management and Data Plane components that will be required to enable NSX Services. 
+
+This Lab will include the following sections:
+
+- Creating Controller IP Pools
+- Create NSX Controller Clusters
+- Prepare ESXi hosts - Install NSX VIBs
+- Create VTEP IP Pools
+- VTEP Configuration
+- Create Segment ID Pool
+- Add Transport Zone
+
+Please note the sections in this lab are done in an intentional order that should be followed for new NSX Installations. The Controller IP pool must be created before the Controllers are deployed, and so on. 
+
+### Creating Controller IP Pools
+
+VMware NSX uses Controllers to manage and synchronize Data Plane information for logical networks. Before Controllers can be created, you must first define an IP Address Pool that NSX Manager will use to assign IP Addresses to Controllers. 
+
+1. Update answerfile.yml with variables to create IP Pool
+2.  fff
+3. f
+
 The NSX Ansible Modules works by interacting with the NSX REST API. When you make a call to the API, you are essentially asking it to take some action on some object, and you need to identify which objects you want to modify. For example, typically when you deploy a virtual machine, you need to deploy it into an existing cluster, onto an existing datastore, and connected to an existing portgroup. When using the GUI, you typically click on these values or use their common name, however when making calls to the API, you need to use special values so the API host knows exactly what you want to do. 
 
 This section walks through the `vcenter_gather_moids` module, which is used to gather the Management IDs (MOIDs) of the cluster, datastore and portgroups used by later modules in this course. 
 
 This section will introduce the use of multiple tasks in a single playbook. As you will see in the exercise, each task uses several of the same variables, so rather than including your variables directly within each task, it makes sense to use an external answer file to hold a common set of variables to be used in the play. 
 
-1. Add variables needed to gather MOIDs to answerfile.yml
+1. Add variables needed to answerfile.yml
     + `cd ~/nsxansible`
+    + f
     + `vi answerfile.yml`
     + Edit answerfile.yml to look like the following - be sure to change any variables as needed for your lab environment:
     ```
