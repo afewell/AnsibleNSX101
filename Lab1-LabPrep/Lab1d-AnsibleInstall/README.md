@@ -27,11 +27,11 @@ This section will provide step-by-step instructions on the installation and conf
   -  `sudo add-apt-repository ppa:ansible/ansible`
   -  `sudo apt-get update`
   -  `sudo apt-get install ansible`
--  Install NSX RAML client (Required for NSX Ansible Module)
+-  Install [NSX RAML client]() (Required for NSX Ansible Module)
   -  `sudo pip install nsxramlclient --upgrade`
--  Install Python Client for vCenter (Required for NSX Ansible Module)
+-  Install [Python Client for vCenter]() (Required for NSX Ansible Module)
   -  `sudo pip install pyvmomi --upgrade`
--  Install VMware OVF Tool (Required for NSX Ansible Module)
+-  Install [VMware OVF Tool]() (Required for NSX Ansible Module)
   -  Download VMware OVF Tool and install on AnsibleCS Server. The reference lab used the Windows server to download OVF Tool from vmware.com, and used IIS on the windows server to transfer the OVF Tool file to the AnsibleCS server. It does not matter exactly how you get the OVF tool file to the AnsibleCS server as long as you get it there.
   - The following instructions assume the OVF Tool installer file has been downloaded to the windows server and IIS has already been configured. The following steps show how to transfer OVF tool from the Windows Server to the AnsibleCS server and then install it. Instructions on getting the OVF tool file and configuring IIS are not provided.
   - OneCloud Users can follow the following instructions exactly, for others you may use this as a reference, be sure to change any variables for your own environment as needed.
@@ -41,27 +41,35 @@ This section will provide step-by-step instructions on the installation and conf
     -  `chmod +x ovftool41.bundle`
     -  `sudo ./ovftool41.bundle`
     -  Accept license and follow prompts to complete installation
--  Clone the NSX Ansible and RAML repositories into the Ansible Modules directory
-  -  `sudo mkdir /usr/share/my_modules`
-  -  `cd /usr/share/my_modules`
+-  Clone the NSX Ansible and RAML repositories into your home directory
+  -  `cd ~`
   -  `sudo git clone https://github.com/vmware/nsxraml`
   -  `sudo git clone https://github.com/vmware/nsxansible`
+*  Copy the Ansible NSX Module python files to the Ansible Library directory
+  -  The git clone command you executed in the previous step copied the nsxansible repository from github to your home directory. These files should now be located in /home/vmware/nsxansible/. If you look in this folder, you will see it has a subdirectory folder called "library" with several python files in it ... these are the actual code files used by Ansible to execute NSX actions. 
+  -  Before you can use the NSX Ansible Modules, you need to ensure the python files are located in the ANSIBLE_LIBRARY location. You can change the default Ansible library path, but in this course the example will use the default path.
+  -  Create a folder in the default Ansible library location
+    +  `sudo mkdir /usr/share/my_modules`
+  -  Create another folder to hold the Ansible NSX Module files
+    +  `sudo mkdir /usr/share/my_modules/nsxansible`
+  -  Copy the files from your home directory to the new library location
+    +  Note: Ansible should by default check the /library folder of whatever directory you run your plays from (in this course we use ~/nsxansible) so this step should not be needed ... but I have found inconsistent results at times so I recommend placing your python files into the ANSIBLE_LIBRARY directory. 
+    +  `sudo cp /home/vmware/nsxansible/library/* /usr/share/my_modules/nsxansible/`
+    +  Ensure the ANSIBLE_LIBRARY environmental variable is configured properly
+      *  Note: Since we are using the default Ansible Library location, this shouldnt need to be configured, but I have found things to not work consistently if this is not manually set, so I recommend it.
+      *  `export ANSIBLE_LIBRARY=/usr/share/my_modules/`
 - Prepare the NSX Ansible environment
   - Please refer to the official documentation for [How to use these modules](https://github.com/vmware/nsxansible#how-to-use-these-modules) for additional details.
   - The NSX Ansible Modules work by communicating directly from the AnsibleCS server to the vCenter and NSX Manager REST API's.
     - There is no need to install Ansible on any target hosts or perform key exchanges for the playbooks used in this course.
-    - The only host needed in the Ansible inventory is localhost. The exercises in this course specify localhost directly within each playbook, but if you prefer you can create an entry for localhost in your Ansible Inventory file.
-  - Create a directory you will use to hold the playbook and variable files you will create in this course:
-    - `cd ~`
-    - `mkdir nsxansible`
-    - `cd nsxansible`
-  - Create a subdirectory to hold the example playbook files and copy the files
-    - `mkdir examples`
-    - `cp /usr/share/my_modules/nsxansible/*.yml ./examples/`
-  - Copy the example host file to your home nsxansible directory
-    - `cp /usr/share/my_modules/nsxansible/hosts .`
+  - Prepare the directory you will use to hold the playbook and variable files you will create in this course:
+    + In this course the examples use the ~/nsxansible directory to store and execute Ansible plays. When you cloned the nsxansible directory from github, it created this folder for you, and loaded it with a large number of example files. You can see these by executing the `ls` command from the `~/nsxansible/` directory. 
+    + To keep the plays you build seperate from the examples included in the nsxansible repository, create an examples folder and move these files
+    - `mkdir ~/nsxansible/examples`
+    - `mv ~/nsxansible/*.yml ~/nsxansible/examples/`
+    - Now if you execute an `ls` you should see only a few files in the ~/nsxansible directory
   - Verify the hosts file
-    - `cat hosts`
+    - `cat ~/nsxansible/hosts`
     - The output should look like this:
 
 
@@ -83,7 +91,7 @@ This section will provide step-by-step instructions on the installation and conf
   * Edit the file to look like this - making sure to change any variables that are different in your environment:
     ```
     nsxmanager_spec:
-      raml_file: '/usr/share/my_modules/nsxraml/nsxvapi.raml'
+      raml_file: '~/nsxraml/nsxvapi.raml'
       host: 'nsxmanager-01a.corp.local'
       user: 'admin'
       password: 'VMware1!'

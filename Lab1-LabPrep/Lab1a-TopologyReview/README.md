@@ -73,26 +73,20 @@ The following list provides details of the hardware configuration used for each 
 - esx-01a
   -  Operating System: VMware ESXi 6.0.0
   -  CPU: 4 Virtual CPU's, one core per CPU
-  -  Memory: 32 GB (While untested for course excercises, 16GB should work fine)
-  -  Hard Drives:
-    -  2 GB Local Disk
-    -  80GB iSCSI Disk
+  -  Memory: 32 GB
+  -  Hard Drive: 2 GB Local Disk
   -  NIC: 2 Standard Ethernet NICs
 - esx-02a
   -  Operating System: VMware ESXi 6.0.0
   -  CPU: 4 Virtual CPU's, one core per CPU
-  -  Memory: 32 GB (While untested for course excercises, 16GB should work fine)
-  -  Hard Drives:
-    -  2 GB Local Disk
-    -  80GB iSCSI Disk
+  -  Memory: 32 GB 
+  -  Hard Drive: 2 GB Local Disk
   -  NIC: 2 Standard Ethernet NICs
 - esx-03a
   -  Operating System: VMware ESXi 6.0.0
-  -  CPU: 4 Virtual CPU's, one core per CPU
+  -  CPU: 2 Virtual CPU's, one core per CPU
   -  Memory: 8 GB
-  -  Hard Drives:
-    -  2 GB Local Disk
-    -  80GB iSCSI Disk
+  -  Hard Drive: 2 GB Local Disk
   -  NIC: 2 Standard Ethernet NICs
 - Main Console
   -  Operating System: Windows Server 2012 R2
