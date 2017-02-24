@@ -44,7 +44,7 @@ Accordingly, the playbook we use in this section will include 5 tasks, the first
       - nsxmanager_spec (already defined in answerfile.yml created in previous exercise)
       - deployment type (options related to quantity of controllers desired, for full details please see [official documentation](https://github.com/vmware/nsxansible#module-nsx_controllers))
       - IP Pool ID
-        - __Note:__ The IP Pool ID is gathered transparently into a temporary, environmental variable by the playbook created in the previous exercise [Creating Controller IP Pools](). This variable is not persistant across logins or reboots, so it is important to either run this playbook in the same session that you ran the playbook to create the ip pool, or manually specify the controller IP Pool ID as a variable. The instructions in this section assume you are running this playbook in the same bash session as the previous play where you created the controller ip pool, if you have not, you will need to gather the IP Pool ID manually.
+        - __Note:__ The IP Pool ID is gathered dynamically by task 4 after IP Pool creation
       - Management Cluster MOID
       - Datastore MOID
       - Network MOID
@@ -78,7 +78,7 @@ targetClusters:
   cluster1: 
     clusterName: 'RegionA01-vDS-COMP'
   cluster2:
-    #clusterName: 'In the reference lab, there is only one cluster, this example shows how to use nested notation to create an object schema for variable values'
+    #clusterName: 'In the reference lab, there is only one cluster, this line is here as an example of one way to organize variables for multi-cluster environments'
 
 nsxIpPools:
   controller:
@@ -436,7 +436,7 @@ nsxIpPools:
 
 segmentIdPoolStart: '5000'
 segmentIdPoolEnd: '5999'
-transportZoneName: 'TZ1'
+transportZoneName: 'TZ'
 transportZoneDescription: 'Default TZ'
 defaultControlPlaneMode: 'Hybrid_Mode'
 ```
