@@ -1,4 +1,4 @@
-# Virtual Networking Configuration
+# Virtual Network Configuration
 In the previous labs, you installed NSX Manager, registered it with vCenter and setup control and data plane components. NSX is now ready to start providing virtual network & security services. This section covers the configuration and provisioning of edge routing, distributed routing and logical switching. 
 
 This Lab includes the following sections:
