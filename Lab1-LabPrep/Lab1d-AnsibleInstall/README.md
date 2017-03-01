@@ -41,6 +41,9 @@ This section will provide step-by-step instructions on the installation and conf
     -  `chmod +x ovftool41.bundle`
     -  `sudo ./ovftool41.bundle`
     -  Accept license and follow prompts to complete installation
+  - Download NSX Manger OVA File from the Windows (IIS) Server to the home directory:
+    -  `cd ~`
+    -  `wget 192.168.110.10/nsxmanager.ova
 -  Clone the NSX Ansible and RAML repositories into your home directory
   -  `cd ~`
   -  `sudo git clone https://github.com/vmware/nsxraml`
@@ -91,7 +94,7 @@ This section will provide step-by-step instructions on the installation and conf
   * Edit the file to look like this - making sure to change any variables that are different in your environment:
     ```
     nsxmanager_spec:
-      raml_file: '~/nsxraml/nsxvapi.raml'
+      raml_file: 'home/vmware/nsxraml/nsxvapi.raml'
       host: 'nsxmanager-01a.corp.local'
       user: 'admin'
       password: 'VMware1!'

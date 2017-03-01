@@ -3,81 +3,66 @@ Lab 2 provides instructions on using Ansible to deploy NSX Manager and register 
 
 This Lab includes the following sections:
 
-- [Prerequisites]()
-- [Deploy NSX Manager]()
-- [Register NSX Manager with vCenter]()
-- [Register NSX Manger with vCenter Single Sign On]()
+- [Prerequisites](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#prerequisites)
+- [Deploy NSX Manager](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#deploy-nsx-manager)
+- [Register NSX Manager with vCenter](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-vcenter)
+- [Register NSX Manger with vCenter Single Sign On](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-the-single-sign-on-service)
 
 Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansible) for any updates to the NSX Ansible Modules. The lab materials in this course were developed and tested using only the versions of the software specified. 
 ## Prerequisites
 - Prerequisites
-  - Complete Lab 1
-    - Or for OneCloud Users
-        - If you load the vApp "AnsibleNSX_Prepped", this is the correct point to start with the lab exercises.
-        - If you load the vApp "AnsibleNSX", you need to complete Lab-1d prior to starting this section
-  - Please review the documentation for the modules used in this section:
-    - [Module nsx_deploy_ova](https://github.com/vmware/nsxansible#module-nsx_deploy_ova)
-    - [Module nsx_vc_registration](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
-    - [Module nsx_sso_registration](https://github.com/vmware/nsxansible#module-nsx_sso_registration)
-  - Make sure there is an A record in the DNS server for the FQDN you would like to use for the NSX Manager server.
-    - In the reference lab,
-  - Save NSX Manager OVA on the AnsibleCS Server
-    - To complete this lab, the NSX Manager OVA file needs be saved locally on the AnsibleCS server.
-    - In the reference lab, IIS is used on Windows Server to transfer the file to AnsibleCS. This course does not include instruction on downloading the NSX Manager OVA File or on the setup of IIS.
-    - To complete this section, it doesnt matter how you get the NSX Manager OVA file to the AnibleCS server as long as you get it there.
-    - __OneCloud Users:__
-      - The NSX Manager OVA File is already loaded onto both of the vApps prepared for this course, and IIS is already pre-configured.
-      - You will need to download the NSX Manager OVA file to the AnsibleCS Server per the following instructions:
-          - `cd ~`
-          - `wget 192.168.110.10/nsxmanager.ova`
+  - __For OneCloud Users__
+      - If you load the vApp "AnsibleNSX_Prepped", this is the correct point to start with the lab exercises.
+      - If you load the vApp "AnsibleNSX", you need to complete Lab-1d prior to starting this section
+  - __For All Other Users__
+    - Complete Lab 1
+    - Make sure there is an A record in the DNS server for the FQDN you would like to use for the NSX Manager server.
+    - Save NSX Manager OVA on the AnsibleCS Server home directory
 
 ## Deploy NSX Manager
-This section provides instructions to create and execute a playbook to deploy the NSX Manager virtual appliance. 
- 
 ### About the playbook
-- Prepare a playbook for deploying NSX Manager
-  - The [Offical Documentation for NSX Ansible](https://github.com/vmware/nsxansible) includes a sample playbook called deploynsx.yml [Click here to view file](https://github.com/vmware/nsxansible/blob/master/deployNsx.yml) which uses a sample Ansible Role to deploy NSX Manager. While you can use these files for reference, the use of Ansible Roles for NSX will be covered in section 7.
-  - NSX Manager can be deployed with a single task, as shown in the playbook below
+This section provides instructions to create and execute a playbook to deploy the NSX Manager virtual appliance. 
+- The NSX Manager virtual appliance can be deployed with a single task, using the `nsx_deploy_ova` module. 
+  - [Documentation for the nsx_deploy_ova module](https://github.com/vmware/nsxansible#module-nsx_deploy_ova)
 
 ### Create the playbook
-  - Create a playbook to deploy NSX Manager
+  - Open a terminal session with the Ansible server 
     - The following commands create a new blank file called 'deploynsx.yml' and opens it in the vi text editor
     - `cd ~/nsxansible/`
-    - `vi deploynsx.yml`
+    - `vi deployNsx.yml`
   - Edit the file to look like the example below:
     - Be sure to change any variables as needed for your environment
-    - __OneCloud Users:__ your file should look exactly like below 
 ```
 ---
 - hosts: localhost
-connection: local
-gather_facts: false
-vars_files:
+  connection: local
+  gather_facts: false
+  vars_files:
     - answerfile.yml
-tasks:
-- name: deploy nsx-man
+  tasks:
+  - name: deploy nsx-man
     nsx_deploy_ova:
-    ovftool_path: '/usr/bin'
-    datacenter: 'RegionA01'
-    datastore: 'RegionA01-ISCSI01-COMP01'
-    portgroup: 'ESXi-RegionA01-vDS-COMP'
-    cluster: 'RegionA01-COMP01'
-    vmname: 'nsxmanager-01a'
-    hostname: 'nsxmanager-01a.corp.local'
-    dns_server: '192.168.110.10'
-    dns_domain: 'corp.local'
-    ntp_server: '192.168.100.1'
-    gateway: '192.168.110.1'
-    ip_address: '192.168.110.110'
-    netmask: '255.255.255.0'
-    admin_password: 'VMware1!'
-    enable_password: 'VMware1!'
-    path_to_ova: '~/'
-    ova_file: 'nsxmanager.ova'
-    vcenter: 'vcsa-01a.corp.local'
-    vcenter_user: 'administrator@corp.local'
-    vcenter_passwd: 'VMware1!'
-  register: deploy_nsx_man
+      ovftool_path: '/usr/bin'
+      datacenter: 'RegionA01'
+      datastore: 'RegionA01-ISCSI01-COMP01'
+      portgroup: 'ESXi-RegionA01-vDS-COMP'
+      cluster: 'RegionA01-COMP01'
+      vmname: 'nsxmanager-01a'
+      hostname: 'nsxmanager-01a.corp.local'
+      dns_server: '192.168.110.10'
+      dns_domain: 'corp.local'
+      ntp_server: '192.168.100.1'
+      gateway: '192.168.110.1'
+      ip_address: '192.168.110.110'
+      netmask: '255.255.255.0'
+      admin_password: 'VMware1!'
+      enable_password: 'VMware1!'
+      path_to_ova: '~/'
+      ova_file: 'nsxmanager.ova'
+      vcenter: 'vcsa-01a.corp.local'
+      vcenter_user: 'administrator@corp.local'
+      vcenter_passwd: 'VMware1!'
+    register: deploy_nsx_man
 ```
   - __Note:__ Ansible playbooks are saved in the YAML format. YAML format does not understand tabs for indentation, so each level of indentation is seperated by 2 spaces, not tabs. YAML doesnt care if you use exactly 2 spaces or 3 spaces (etc...) to indent, but it does matter that the indentation is consistent and each line is indented just like in the above example. I use 2 spaces for each level of indentation, which is a good general practice.
 
@@ -85,7 +70,7 @@ tasks:
 
 - Return to your terminal session with the Ansible server 
   - `cd ~/nsxansible/`
-  - `ansible-playbook -i hosts deploynsx.yml`
+  - `ansible-playbook -i hosts deployNsx.yml`
   - After you run the above command, it will take a long time to run (~10 minutes or more) as it will transfer the large NSX Manager OVA file from the AnsibleCS server to the vCenter datastore. While the play is running, there will be no output on the screen to indicate if the play is still running, so you just have to wait until you the play completes successfully or fails.  
   - After you run the play, while the play is running you should see output similar to the following:
 ```
@@ -119,14 +104,12 @@ vmware@vmware:~/nsxansible$
 
 
 ## Register NSX Manager with vCenter
-After deploying the NSX Manager virtual appliance, you must register it with vCenter. 
-
 ### About the playbook
-- Prepare a playbook for deploying NSX Manager
-  - The [Offical Documentation for NSX Ansible](https://github.com/vmware/nsxansible) includes a sample playbook called deploynsx.yml [Click here to view file](https://github.com/vmware/nsxansible/blob/master/deployNsx.yml) which uses a sample Ansible Role to deploy NSX Manager. While you can use these files for reference, the use of Ansible Roles for NSX will be covered in section 7.
-  - NSX Manager can be deployed with a single task, as shown in the playbook below
+After deploying the NSX Manager virtual appliance, you must register it with vCenter.
+- NSX Manager can be registered to vCenter with a single task, using the `nsx_vc_registration` module. 
+  - [Documentation for the nsx_vc_registration module](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
 
-## Create the Playbook
+### Create the Playbook
 - Create a playbook to register NSX Manager with vCenter
   - `cd ~/nsxansible/`
   - `vi registerNsxVcenter.yml`
@@ -134,21 +117,21 @@ After deploying the NSX Manager virtual appliance, you must register it with vCe
 ```
 ---
 - hosts: localhost
-    connection: local
-    gather_facts: False
-    vars_files:
-        - answerfile.yml
-    tasks:
-    - name: NSX Manager VC Registration
+  connection: local
+  gather_facts: False
+  vars_files:
+    - answerfile.yml
+  tasks:
+  - name: NSX Manager VC Registration
     nsx_vc_registration:
-        nsxmanager_spec: "{{ nsxmanager_spec }}"
-        vcenter: 'vcsa-01a.corp.local'
-        vcusername: 'administrator@vsphere.local'
-        vcpassword: 'VMware1!'
-        accept_all_certs: "True"
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      vcenter: 'vcsa-01a.corp.local'
+      vcusername: 'administrator@vsphere.local'
+      vcpassword: 'VMware1!'
+      accept_all_certs: "True"
     register: register_to_vc
 
-    - debug: var=register_to_vc
+  - debug: var=register_to_vc
 ```
 - In the above example file:
     - look at line for the variable nsxmanager_spec, notice that the value is "{{ nsxmanager_spec }}". 
@@ -159,16 +142,61 @@ After deploying the NSX Manager virtual appliance, you must register it with vCe
   - Return to your terminal session with the Ansible server
     - `cd ~/nsxansible`
     - `ansible-playbook -i hosts registerNsxVcenter.yml`
-  - Note: Once you run the play, Ansible will execute the tasks in order and display the status of each tasks. After the first 4 tasks complete successfully, the `Create NSX Controllers` task will take a long time (15 minutes or more) to run, during which time no output will be displayed. During this time you simply must wait, if the task fails, you will recieve an error message. 
   - If the play completes successfully, you should see output similar to the following:
-    - Note: Your output may not look exactly like the output below, for example in developing this lab I sometimes have to run the same play multiple times before I get it working correctly which may create differences between the output below and what you see in your terminal. The only thing that really matters is that there are no errors when running the play. To verify this, in the `PLAY RECAP` section, make sure all tasks executed as `ok` or `changed`. The other values should be `unreachable=0` and `failed=0`, if any tasks are unreachable or failed, you need to troubleshoot until you can run the play with no errors before proceeding. 
+```
+vmware@vmware:~/nsxansible$ ansible-playbook -i hosts registerNsxVcenter.yml
+
+PLAY [localhost] ***************************************************************
+
+TASK [NSX Manager VC Registration] *********************************************
+changed: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "register_to_vc": {
+        "argument_spec": {
+            "accept_all_certs": "True",
+            "nsxmanager_spec": {
+                "host": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                "raml_file": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                "user": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
+            },
+            "vccertthumbprint": "25:CE:76:57:A1:C4:3B:56:06:68:2D:7D:9C:E1:5B:1E:E0:8E:53:74",
+            "vcenter": "vcsa-01a.corp.local",
+            "vcpassword": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "vcusername": "********istrator@vsphere.local"
+        },
+        "changed": true,
+        "sso_config_response": {
+            "Etag": null,
+            "body": null,
+            "location": null,
+            "objectId": null,
+            "status": 200
+        }
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
 
 ### Verify results
 
-- Do something
+- From a computer that has connectivity to the IP address of NSX Manager, open a web browser to https://nsxmanager-01a.corp.local
+  - Log in with the following credentials:
+    - Username: admin
+    - Password: VMware1!
+  - Click on Manage vCenter Registration
+    - Look for the "vCenter Server" section and verify that the "Status" is "Connected", similar to the image below
+![registerVcenterVerify](images/registerVcenterVerify.PNG)
 
 ## Register NSX Manager with the Single Sign-on Service
-In addition to registering NSX Manager with vCenter, it must also be registered with the vCenter Single Sign On service. 
+### About the playbook
+In addition to registering NSX Manager with vCenter, it must also be registered with the vCenter Single Sign On service.
+- NSX Manager can be registered to vCenter Single Sign on with a single task, using the `nsx_sso_registration` module. 
+  - [Documentation for the nsx_sso_registration module](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
 
 ### Create the playbook
 - Create a playbook to register NSX Manager with SSO
@@ -178,24 +206,24 @@ In addition to registering NSX Manager with vCenter, it must also be registered 
 ```
 ---
 - hosts: localhost
-    connection: local
-    gather_facts: False
-    vars_files:
-        - answerfile.yml
-    tasks:
-    - name: NSX Manager SSO Registration
+  connection: local
+  gather_facts: False
+  vars_files:
+    - answerfile.yml
+  tasks:
+  - name: NSX Manager SSO Registration
     nsx_sso_registration:
-        state: present
-        nsxmanager_spec: "{{ nsxmanager_spec }}"
-        sso_lookupservice_url: 'lookupservice/sdk'
-        sso_lookupservice_port: 7444
-        sso_lookupservice_server: 'vcsa-01a.corp.local'
-        sso_admin_username: 'Administrator@vsphere.local'
-        sso_admin_password: 'VMware1!'
-        accept_all_certs: true
+      state: present
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      sso_lookupservice_url: 'lookupservice/sdk'
+      sso_lookupservice_port: 7444
+      sso_lookupservice_server: 'vcsa-01a.corp.local'
+      sso_admin_username: 'Administrator@vsphere.local'
+      sso_admin_password: 'VMware1!'
+      accept_all_certs: true
     register: register_to_sso
 
-    - debug: var=register_to_sso
+  - debug: var=register_to_sso
 ```
 ### Run the playbook
 - Run  the play and review results
@@ -259,8 +287,18 @@ vmware@vmware:~/nsxansible$
     - Next the entry `debug: var=register_to_sso` causes ansible to display the values in the "register_to_sso" array.
 
 ### Verify results
+- From a computer that has connectivity to the IP address of NSX Manager, open a web browser to https://nsxmanager-01a.corp.local
+  - Log in with the following credentials:
+    - Username: admin
+    - Password: VMware1!
+  - Click on Manage vCenter Registration
+    - Look for the "Lookup Service URL" section and verify that the "Status" is "Connected", similar to the image below
+    - ![registerSsoVerify](images/registerSsoVerify.PNG)
+  - If you have any browser session to vSphere web client, log out and close them now 
+  - Open a new web browser session with vSphere web client (https://vcsa-01a.corp.local/vsphere-client/?csp)
+    - Now that you have deployed the NSX Manager virtual appliance, registered it with vCenter and SSO, and opened a _new_ session with vSphere web client, you should now be able to see the Networking & Security tab, as shown in the image below
+![lab2Verify](images/lab2Verify.PNG)
 
-- Do something
 
 ### Congratulations, you have completed Lab 2!
 ## [Click Here To Proceed To Lab-3](../../Lab3-Discovery/)
