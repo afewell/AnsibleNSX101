@@ -153,12 +153,12 @@ localhost                  : ok=5    changed=2    unreachable=0    failed=0
     - Click on the "Grouping Objects" tab
     - Click on "IP Pools"
     - You should see the "regionA01ControllerPool" that was created by this play
-![controllerPoolVerify](images/controllerPoolVerify.PNG)
+![controllerPoolVerify](Images/controllerPoolVerify.PNG)
   - Verify Controller Deployment
     - From the vSphere web client home page, navigate to the "Networking & Security" Section
     - Click the "Installation" tab on the left Navigator bar
     - In the "NSX Controller Nodes" Section, you should see 3 controllers listed
-![controllerVerify](images/controllerVerify.PNG)
+![controllerVerify](Images/controllerVerify.PNG)
 
 ## Preparing ESXi Hosts with VIB installation
 ### About the playbook
@@ -356,14 +356,14 @@ vmware@vmware:~/nsxansible$
     - Click on the "Grouping Objects" tab
     - Click on "IP Pools"
     - You should see the "vtepPool-130" that was created by this play
-![vtepPoolVerify](images/vtepPoolVerify.PNG)
+![vtepPoolVerify](Images/vtepPoolVerify.PNG)
   - Verify VXLAN Configuration
     - From the vSphere web client home page, navigate to the "Networking & Security" Section
     - Click the "Installation" tab on the left Navigator bar
     - Click on the "Logical Network Preparation" tab
     - Expand "RegionA01-COMP01" to see each ESXi host
     - Verify that the "Configuration Status" for each host is "Ready" and that an IP VMKNic IP Address has been assigned to each host as in the image below
-![vtepVerify](images/vtepVerify.PNG)
+![vtepVerify](Images/vtepVerify.PNG)
 
 ## Creating Transport Zones
 ### About the playbook
@@ -459,14 +459,14 @@ vmware@vmware:~/nsxansible$
     - Click on the "Logical Network Preparation" tab
     - Click on the "Segment ID" tab
     - Verify that the "Segment ID Pool" is set to "5000-5999
-![segmentPoolVerify](images/segmentPoolVerify.PNG)
+![segmentPoolVerify](Images/segmentPoolVerify.PNG)
   - Verify Transport Zone Configuration
     - From the vSphere web client home page, navigate to the "Networking & Security" Section
     - Click the "Installation" tab on the left Navigator bar
     - Click on the "Logical Network Preparation" tab
     - Click on the "Transport Zones" tab
     - Verify that the transport zone "TZ" is listed with the "Control Plane Mode" set to "Unicast" as in the image below
-![tzVerify](images/tzVerify.PNG)
+![tzVerify](Images/tzVerify.PNG)
 
 ### Congratulations, you have completed Lab 3!
 ## [Click Here To Proceed To Lab-4](../../Lab4-EnvSetup/)

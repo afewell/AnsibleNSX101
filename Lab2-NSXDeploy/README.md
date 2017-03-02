@@ -101,7 +101,7 @@ vmware@vmware:~/nsxansible$
 
 ### Verify results
 - After the play runs successfully, open the vCenter web client and verify that the NSX Manager virtual machine has been deployed and powered on in your vCenter environment:
-![NSX Deploy Validation](images/NsxDeployValidation.PNG)
+![NSX Deploy Validation](Images/NsxDeployValidation.PNG)
 
 
 ## Register NSX Manager with vCenter
@@ -193,7 +193,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
     - Password: VMware1!
   - Click on Manage vCenter Registration
     - Look for the "vCenter Server" section and verify that the "Status" is "Connected", similar to the image below
-![registerVcenterVerify](images/registerVcenterVerify.PNG)
+![registerVcenterVerify](Images/registerVcenterVerify.PNG)
 
 ## Register NSX Manager with the Single Sign-on Service
 ### About the playbook
@@ -299,7 +299,7 @@ vmware@vmware:~/nsxansible$
     - Password: VMware1!
   - Click on Manage vCenter Registration
     - Look for the "Lookup Service URL" section and verify that the "Status" is "Connected", similar to the image below
-    - ![registerSsoVerify](images/registerSsoVerify.PNG)
+    - ![registerSsoVerify](Images/registerSsoVerify.PNG)
   - If you have any browser connections open to vSphere web client, log out and close them now 
   - Observe that in the vCenter and SSO registration playbooks, you used the account 'administrator@vsphere.local' to register NSX Manager. You will now neeed to log into vSphere web client with the administrator@vsphere.local account, so that you can assign permissions for the administrator@corp.local account to manage NSX. 
     - Open a new web browser session with vSphere web client (https://vcsa-01a.corp.local/vsphere-client/?csp)
@@ -307,7 +307,7 @@ vmware@vmware:~/nsxansible$
       - Username: administrator@vsphere.local
       - Password: VMware1!
     - You should now be able to see a new "Networking & Security" section as shown in the below image:
-![lab2Verify](images/lab2Verify.PNG)
+![lab2Verify](Images/lab2Verify.PNG)
     - Click on the "Networking & Security" tab
     - On the bottom of the left Navigator bar, click on "NSX Managers"
     - Click on the IP address of your NSX Manager
@@ -315,10 +315,10 @@ vmware@vmware:~/nsxansible$
     - Click on the "Users" tab
     - Click on the green plus sign icon to add a new user
     - Enter the user administrator@corp.local and click next
-![nsxPermissions](images/nsxPermissions.PNG)
+![nsxPermissions](Images/nsxPermissions.PNG)
     - Select "Enterprise Administrator" and click "Finish
     - You should now see the corp.local/administrator account listed as an Enterprise Administrator
-![permissionsVerify](images/permissionsVerify.PNG)
+![permissionsVerify](Images/permissionsVerify.PNG)
     - Log out of the vSphere web client
     - Log back into the vSphere web client using the administrator@corp.local account
     - Click on the "Networking & Security" tab
