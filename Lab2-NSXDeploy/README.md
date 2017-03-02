@@ -1,5 +1,5 @@
 # Deploying NSX Manager with Ansible
-Lab 2 provides instructions on using Ansible to deploy NSX Manager and register it with SSO and vCenter. To complete this section, you will need to provide your own licensed access to NSX Manager software. The reference lab and OneCloud vApps for this course use VMware-NSX-Manager-6.2.5-4818372, however these instructions should also work with other recent/current versions of NSX Manager.
+Lab 2 provides instructions on using Ansible to deploy NSX Manager and register it with SSO and vCenter. To complete this section, you will need to provide your own licensed access to NSX Manager software. The reference lab and OneCloud vApps for this course use VMware-NSX-Manager-6.2.5-4818372. These instructions may also work with other versions of NSX Manager, however please note the lab materials in this course were developed and tested using only the versions of the software specified.
 
 This Lab includes the following sections:
 
@@ -7,6 +7,7 @@ This Lab includes the following sections:
 - [Deploy NSX Manager](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#deploy-nsx-manager)
 - [Register NSX Manager with vCenter](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-vcenter)
 - [Register NSX Manger with vCenter Single Sign On](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-the-single-sign-on-service)
+- [Enter NSX License in vCenter]()
 
 Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansible) for any updates to the NSX Ansible Modules. The lab materials in this course were developed and tested using only the versions of the software specified. 
 ## Prerequisites
@@ -107,6 +108,8 @@ vmware@vmware:~/nsxansible$
 ### About the playbook
 After deploying the NSX Manager virtual appliance, you must register it with vCenter.
 - NSX Manager can be registered to vCenter with a single task, using the `nsx_vc_registration` module. 
+  - __Note__ that in the playbook below, the local SSO root account administrator@vsphere.local is used to register NSX Manager. If you have set up your own lab you can use the SSO root account when registering NSX Manager, however typically in a production environment you would create a seperate service account to register NSX Manager. 
+  - __Important:__ The account you use to register NSX Manager is the ONLY account that will initially have access to configure NSX Manager in the vSphere web client. After registration is complete your first vSphere web client login must be with the account used to register NSX Manager, which you can use to log in and give administration priviledges to other accounts as needed. 
   - [Documentation for the nsx_vc_registration module](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
 
 ### Create the Playbook
@@ -195,7 +198,9 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ## Register NSX Manager with the Single Sign-on Service
 ### About the playbook
 In addition to registering NSX Manager with vCenter, it must also be registered with the vCenter Single Sign On service.
-- NSX Manager can be registered to vCenter Single Sign on with a single task, using the `nsx_sso_registration` module. 
+- NSX Manager can be registered to vCenter Single Sign on with a single task, using the `nsx_sso_registration` module.
+  - __Note__ that in the playbook below, the local SSO root account administrator@vsphere.local is used to register NSX Manager. If you have set up your own lab you can use the SSO root account when registering NSX Manager, however typically in a production environment you would create a seperate service account to register NSX Manager. 
+  - __Important:__ The account you use to register NSX Manager is the ONLY account that will initially have access to configure NSX Manager in the vSphere web client. After registration is complete your first vSphere web client login must be with the account used to register NSX Manager, which you can use to log in and give administration priviledges to other accounts as needed.  
   - [Documentation for the nsx_sso_registration module](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
 
 ### Create the playbook
@@ -287,6 +292,7 @@ vmware@vmware:~/nsxansible$
     - Next the entry `debug: var=register_to_sso` causes ansible to display the values in the "register_to_sso" array.
 
 ### Verify results
+- __Important__ You must complete this verification section before proceeding to the next lab
 - From a computer that has connectivity to the IP address of NSX Manager, open a web browser to https://nsxmanager-01a.corp.local
   - Log in with the following credentials:
     - Username: admin
@@ -294,11 +300,42 @@ vmware@vmware:~/nsxansible$
   - Click on Manage vCenter Registration
     - Look for the "Lookup Service URL" section and verify that the "Status" is "Connected", similar to the image below
     - ![registerSsoVerify](images/registerSsoVerify.PNG)
-  - If you have any browser session to vSphere web client, log out and close them now 
-  - Open a new web browser session with vSphere web client (https://vcsa-01a.corp.local/vsphere-client/?csp)
-    - Now that you have deployed the NSX Manager virtual appliance, registered it with vCenter and SSO, and opened a _new_ session with vSphere web client, you should now be able to see the Networking & Security tab, as shown in the image below
+  - If you have any browser connections open to vSphere web client, log out and close them now 
+  - Observe that in the vCenter and SSO registration playbooks, you used the account 'administrator@vsphere.local' to register NSX Manager. You will now neeed to log into vSphere web client with the administrator@vsphere.local account, so that you can assign permissions for the administrator@corp.local account to manage NSX. 
+    - Open a new web browser session with vSphere web client (https://vcsa-01a.corp.local/vsphere-client/?csp)
+    - Log in with the following account:
+      - Username: administrator@vsphere.local
+      - Password: VMware1!
+    - You should now be able to see a new "Networking & Security" section as shown in the below image:
 ![lab2Verify](images/lab2Verify.PNG)
+    - Click on the "Networking & Security" tab
+    - On the bottom of the left Navigator bar, click on "NSX Managers"
+    - Click on the IP address of your NSX Manager
+    - Click on the "Manage" tab
+    - Click on the "Users" tab
+    - Click on the green plus sign icon to add a new user
+    - Enter the user administrator@corp.local and click next
+![nsxPermissions](images/nsxPermissions.PNG)
+    - Select "Enterprise Administrator" and click "Finish
+    - You should now see the corp.local/administrator account listed as an Enterprise Administrator
+![permissionsVerify](images/permissionsVerify.PNG)
+    - Log out of the vSphere web client
+    - Log back into the vSphere web client using the administrator@corp.local account
+    - Click on the "Networking & Security" tab
+    - On the bottom of the left Navigator bar, click on "NSX Managers"
+    - Verify that you can see the NSX Manager listed, this confirms that the permissions setting worked as you would not be able to see the NSX Manager listed if your login account did not have correct permissions. 
 
+## Enter NSX License in vCenter 
+- Prior to proceeding, you must ensure you have entered a valid license for NSX. The current NSX Ansible modules do not support registering licenses via Ansible, so this section will walk you through entering the license through the vSphere web client. You must provide your own valid license key. VMware Employees can get a license throught the bobs-eval socialcast group. 
+  - Open a web browser to the vSphere web client
+  - Click on "Licensing"
+  - Click the green plus sign icon to add a new license
+  - Paste in your license key and complete the wizard to add license
+  - Click on the "Assets" tab and then the "Solutions" tab
+  - Highlight "NSX for vSphere" 
+  - Under "All Actions" select "Assign License"
+  - Select the correct NSX license, and click ok
+  - The license should now be applied
 
 ### Congratulations, you have completed Lab 2!
 ## [Click Here To Proceed To Lab-3](../../Lab3-Discovery/)
