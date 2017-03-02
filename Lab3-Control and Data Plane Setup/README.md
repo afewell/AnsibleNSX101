@@ -235,7 +235,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   - Click the "Installation" tab on the left Navigator bar
   - Click on the "Host Preparation" tab
   - RegionA01-COMP01 should display the installed version, the firewall should be enabled, and VXLAN should not yet be configured, as in the image below
-![vibVerify](images/vibVerify.PNG)
+![vibVerify](Images/vibVerify.PNG)
 
 ## Configuring VTEPs
 ### About the playbook
