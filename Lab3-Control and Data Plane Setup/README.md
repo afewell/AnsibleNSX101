@@ -101,7 +101,7 @@ Accordingly, the playbook we use in this section will include 5 tasks, the first
     nsx_controllers:
       nsxmanager_spec: "{{ nsxmanager_spec }}"
       state: present
-      deploytype: 'full'
+      deploytype: 'lab'
       ippool_id: "{{ controller_ip_pool.ippool_id }}"
       resourcepool_moid: "{{ vcenter_mgmt_cluster_moid.object_id }}"
       datastore_moid: "{{ vcenter_mgmt_datastore_moid.object_id }}"
