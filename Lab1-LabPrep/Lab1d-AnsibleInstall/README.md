@@ -7,11 +7,12 @@ This section will provide step-by-step instructions on the installation and conf
 -  You should be able to establish an SSH session to the AnsibleCS server
 -  The Windows and AnsibleCS servers should have internet access
 -  You should have IP reachability between all hosts on the labs internal management (192.168.110.0/24) network
--  VMware Employees using OneCloud:
+### VMware Employees using OneCloud:
   -  You may load the vApp named "AnsibleNSX" to which is preloaded with all configurations provided in labs 1a-1c.
   -  If you would like to skip Ansible installation and proceed directly to using the NSX Ansible modules, another vApp called "AnsibleNSX_prepped" is available. If you load this vApp, you can proceed directly to Lab-2
   -  Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog
-  - __Note:__  After you power on the vApp, please wait ~10 minutes before starting the lab exercises for everything to boot and connect.
+  -  If you do not have access to the Sandbox-SDDC partition, please open a ticket with the OneCloud support team to have the vApp moved to a partition you can access. 
+  - __Note:__  After you power on the vApp, please wait ~10 minutes before starting the lab exercises for everything to boot and connect. This lab does not make use of the lab startup script so the watermark on the desktop will not indicate when the lab is ready. To verify lab readiness, open a web browser connection to the vSphere web client. Once you can log in successfully to the vSphere web client, the lab is ready to proceed.  
 
 ## Ansible Installation
 
