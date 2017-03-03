@@ -7,6 +7,7 @@ This section will provide step-by-step instructions on the installation and conf
 -  You should be able to establish an SSH session to the AnsibleCS server
 -  The Windows and AnsibleCS servers should have internet access
 -  You should have IP reachability between all hosts on the labs internal management (192.168.110.0/24) network
+
 ### VMware Employees using OneCloud:
   -  You may load the vApp named "AnsibleNSX" to which is preloaded with all configurations provided in labs 1a-1c.
   -  If you would like to skip Ansible installation and proceed directly to using the NSX Ansible modules, another vApp called "AnsibleNSX_prepped" is available. If you load this vApp, you can proceed directly to Lab-2
