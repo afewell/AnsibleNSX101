@@ -13,6 +13,7 @@ Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansib
 ## Prerequisites
 - Prerequisites
   - __For OneCloud Users__
+      - [Video - Loading the Ansible NSX vApps in OneCloud]()
       - If you load the vApp "AnsibleNSX_Prepped", this is the correct point to start with the lab exercises.
       - If you load the vApp "AnsibleNSX", you need to complete Lab-1d prior to starting this section
   - __For All Other Users__
@@ -28,6 +29,8 @@ This section provides instructions to create and execute a playbook to deploy th
 
 ### Create the playbook
   - Open a terminal session with the Ansible server 
+      - Username: `vmware`
+      - Password: `VMware1!`
     - The following commands create a new blank file called 'deploynsx.yml' and opens it in the vi text editor
     - `cd ~/nsxansible/`
     - `vi deployNsx.yml`

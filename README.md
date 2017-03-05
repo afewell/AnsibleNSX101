@@ -22,7 +22,7 @@ This training module will focus primarily on hands-on examples and will provide 
 
 ## Getting Started
 - **VMware Employees:** Two vApps have been prepared in Onecloud for this course with the base lab topology pre-built for you
-  - If you would like to install and prepare the Ansible control server, [proceed to lab 1d](https://github.com/afewell/AnsibleNSX101/tree/master/Lab1-LabPrep/Lab1d-AnsibleInstall).
+  - If you would like to install and prepare the Ansible control server, [proceed to lab 1d](https://github.com/afewell/AnsibleNSX101/tree/master/Lab1-LabPrep/Lab1d-AnsibleInstall#vmware-employees-using-onecloud).
   - If you would like a pod with Ansible pre-installed so you can go straight to work on the playbooks, proceed to lab 2. 
 
 __All other participants:__ 
