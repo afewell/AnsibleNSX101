@@ -210,7 +210,7 @@ NSX distributed networking features are provided to each VM by services running 
 - Run  the play and review results
   - Return to your terminal session with the Ansible server
     - `cd ~/nsxansible`
-    - `ansible-playbook -i hosts createControllers.yml`
+    - `ansible-playbook -i hosts installNsxVibs.yml`
   - Note: Once you run the play, Ansible will execute the tasks in order and display the status of each tasks. After the first 4 tasks complete successfully, the `Create NSX Controllers` task will take a long time (15 minutes or more) to run, during which time no output will be displayed. During this time you simply must wait, if the task fails, you will recieve an error message. 
   - If the play completes successfully, you should see output similar to the following:
     - Note: Your output may not look exactly like the output below, for example in developing this lab I sometimes have to run the same play multiple times before I get it working correctly which may create differences between the output below and what you see in your terminal. The only thing that really matters is that there are no errors when running the play. To verify this, in the `PLAY RECAP` section, make sure all tasks executed as `ok` or `changed`. The other values should be `unreachable=0` and `failed=0`, if any tasks are unreachable or failed, you need to troubleshoot until you can run the play with no errors before proceeding. 

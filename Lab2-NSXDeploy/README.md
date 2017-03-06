@@ -327,6 +327,7 @@ vmware@vmware:~/nsxansible$
     - Click on the "Networking & Security" tab
     - On the bottom of the left Navigator bar, click on "NSX Managers"
     - Verify that you can see the NSX Manager listed, this confirms that the permissions setting worked as you would not be able to see the NSX Manager listed if your login account did not have correct permissions. 
+![pluginVerify](Images/pluginVerify.PNG)
 
 ## Enter NSX License in vCenter 
 - Prior to proceeding, you must ensure you have entered a valid license for NSX. The current NSX Ansible modules do not support registering licenses via Ansible, so this section will walk you through entering the license through the vSphere web client. You must provide your own valid license key. VMware Employees can get a license throught the bobs-eval socialcast group. 
