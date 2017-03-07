@@ -469,6 +469,6 @@ vmware@vmware:~/nsxansible$
 ![tzVerify](Images/tzVerify.PNG)
 
 ### Congratulations, you have completed Lab 3!
-## [Click Here To Proceed To Lab-4](../../Lab4-EnvSetup/)
+## [Click Here To Proceed To Lab-4](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration)
 
 

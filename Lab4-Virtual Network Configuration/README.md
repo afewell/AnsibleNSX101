@@ -23,6 +23,7 @@ In this section, you will make a playbook to create each of the logical switches
 - An NSX Logical switch can be created with a single task
     - The playbook you create in this section will use 4 copies of the same task to create 4 logical switches, TransitLS, WebLS, AppLS and DBLS. 
     - [Documentation for the nsx_logical_switch module](https://github.com/vmware/nsxansible#module-nsx_deploy_ova)
+
 ### Create the Playbook
 - An NSX Logical switch can be created with a single task
     - The playbook you create in this section will use 4 copies of the same task to create 4 logical switches, TransitLS, WebLS, AppLS and DBLS. 
