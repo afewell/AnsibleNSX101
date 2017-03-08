@@ -3,7 +3,7 @@ In the previous labs, you installed NSX Manager, registered it with vCenter and 
 
 This Lab includes the following sections:
 
-- [Lab Topology Review](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#lab-4-virtual-networking-topology)
+<!--- [Lab Topology Review](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#lab-4-virtual-networking-topology) -->
 - [Logical Switching](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#logical-switching)
 - [Distributed Router Deployment](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#distributed-routing)
 - [Edge Router Deployment](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#edge-routing)
