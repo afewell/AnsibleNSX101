@@ -119,7 +119,7 @@ vmware@vmware:~/nsxansible$
 After deploying the NSX Manager virtual appliance, you must register it with vCenter.
 - NSX Manager can be registered to vCenter with a single task, using the `nsx_vc_registration` module. 
   - __Note__ that in the playbook below, the local SSO root account administrator@vsphere.local is used to register NSX Manager. If you have set up your own lab you can use the SSO root account when registering NSX Manager, however typically in a production environment you would create a seperate service account to register NSX Manager. 
-  - __Important:__ The account you use to register NSX Manager is the ONLY account that will initially have access to configure NSX Manager in the vSphere web client. After registration is complete your first vSphere web client login must be with the account used to register NSX Manager, which you can use to log in and give administration priviledges to other accounts as needed. 
+  - __Important:__ The account you use to register NSX Manager is the ONLY account that will initially have access to configure NSX Manager in the vSphere web client. After registration is complete your first vSphere web client login must be with the account used to register NSX Manager, which you can use to log in and give administration priviledges to other accounts as needed, as demonstrated in the validation section at the end of lab 2. 
   - [Documentation for the nsx_vc_registration module](https://github.com/vmware/nsxansible#module-nsx_vc_registration)
 
 ### Create the Playbook
@@ -246,10 +246,9 @@ In addition to registering NSX Manager with vCenter, it must also be registered 
 - Run  the play and review results
   - Return to your terminal session with the Ansible server
     - `cd ~/nsxansible`
-    - `ansible-playbook -i hosts createControllers.yml`
-  - Note: Once you run the play, Ansible will execute the tasks in order and display the status of each tasks. After the first 4 tasks complete successfully, the `Create NSX Controllers` task will take a long time (15 minutes or more) to run, during which time no output will be displayed. During this time you simply must wait, if the task fails, you will recieve an error message. 
+    - `ansible-playbook -i hosts registerNsxSso.yml`
   - If the play completes successfully, you should see output similar to the following:
-    - Note: Your output may not look exactly like the output below, for example in developing this lab I sometimes have to run the same play multiple times before I get it working correctly which may create differences between the output below and what you see in your terminal. The only thing that really matters is that there are no errors when running the play. To verify this, in the `PLAY RECAP` section, make sure all tasks executed as `ok` or `changed`. The other values should be `unreachable=0` and `failed=0`, if any tasks are unreachable or failed, you need to troubleshoot until you can run the play with no errors before proceeding. 
+
 ```
 vmware@vmware:~/nsxansible$ ansible-playbook -i hosts registersso.yml
 
@@ -351,4 +350,4 @@ vmware@vmware:~/nsxansible$
   - The license should now be applied
 
 ### Congratulations, you have completed Lab 2!
-## [Click Here To Proceed To Lab-3](../../Lab3-Discovery/)
+## [Click Here To Proceed To Lab-3](https://github.com/afewell/AnsibleNSX101/tree/master/Lab3-Control%20and%20Data%20Plane%20Setup)

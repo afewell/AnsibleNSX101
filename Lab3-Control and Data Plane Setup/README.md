@@ -113,7 +113,7 @@ Accordingly, the playbook we use in this section will include 5 tasks, the first
   
   ```
 ### Run the playbook
-- Run  the play and review results
+- Run the play and review results
   - Return to your terminal session with the Ansible server
     - `cd ~/nsxansible`
     - `ansible-playbook -i hosts createControllers.yml`
