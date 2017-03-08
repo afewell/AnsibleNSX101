@@ -245,7 +245,7 @@ In this section you will create and provide the basic configuration for an NSX E
       - Description: 
         - Before you can deploy a DLR with the `nsx-dlr` ansible module, you first need to gather the MOIDs for the resource pool or cluster, datacenter, datastore and management portgroup.  
       - [Documentation for the vcenter_gather_moids module](https://github.com/vmware/nsxansible#module-vcenter_gather_moids)
-    - Task 2: ESG Creation
+    - Task 4: ESG Creation
       - Description:
         - This task provides the needed values to create the ESG and provide the base IP configuration including interface configuration
       - [Documentation for the nsx_edge_router module](https://github.com/vmware/nsxansible#module-nsx_edge_router)
@@ -408,7 +408,7 @@ The ESG will also be configured to peer with another Northbound router (vpod_rou
       nsxmanager_spec: "{{ nsxmanager_spec }}"
       state: present
       edge_name: 'ansibleDLR'
-      router_id: '192.168.101.4'
+      router_id: '192.168.101.2'
       default_originate: False
       forwarding_address: '192.168.101.2'
       protocol_address: '192.168.101.3'
