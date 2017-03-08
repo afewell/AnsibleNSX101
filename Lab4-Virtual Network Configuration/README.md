@@ -242,7 +242,7 @@ Now that you have created the logical switches for the lab environment, and a lo
 In this section you will create and provide the basic configuration for an NSX Edge Services Gateway (ESG). This ESG will serve as a gateway between the virtual and physical routing environments. 
 
 - The installation and configuration of the ESG requires several tasks that interact with multiple NSX Ansible modules. 
-    - Task 1: Gather vCenter Moids
+    - Tasks 1-3: Gather vCenter Moids
       - Description: 
         - Before you can deploy a DLR with the `nsx-dlr` ansible module, you first need to gather the MOIDs for the resource pool or cluster, datacenter, datastore and management portgroup.  
       - [Documentation for the vcenter_gather_moids module](https://github.com/vmware/nsxansible#module-vcenter_gather_moids)
