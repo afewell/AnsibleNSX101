@@ -9,13 +9,12 @@ This Lab includes the following sections:
 - [Edge Router Deployment](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#edge-routing)
 - [Dynamic Routing Configuration]()
 
-
+<!---
 ## Virtual Network Topology
-
 This lab will go through each of the NSX Ansible Networking configuration modules. Completion of all of the exercises in Lab 4 will result in the following virtual network topology:
 
 ![topology image](Images/topology.PNG) 
-
+-->
 ## Logical Switching
 In this section, you will make a playbook to create each of the logical switches required to complete the Lab 4 Virtual Networking Topology. 
 
