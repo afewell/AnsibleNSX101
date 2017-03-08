@@ -244,7 +244,7 @@ In this section you will create and provide the basic configuration for an NSX E
 - The installation and configuration of the ESG requires several tasks that interact with multiple NSX Ansible modules. 
     - Task 1: Gather vCenter Moids
       - Description: 
-        - Before you can deploy a ESG with the `nsx_edge_router` ansible module, you first need to gather the MOIDs for the resource pool (Cluster), datacenter, and datastor you would like the ESG to be provisioned to. In this playbook, you will build a single task that gathers all of these MOID values. Note that this is more streamlined than the method used in [Lab 3]() where you used a seperate task to gather each MOID independently. 
+        - Before you can deploy a DLR with the `nsx-dlr` ansible module, you first need to gather the MOIDs for the resource pool or cluster, datacenter, datastore and management portgroup.  
       - [Documentation for the vcenter_gather_moids module](https://github.com/vmware/nsxansible#module-vcenter_gather_moids)
     - Task 2: ESG Creation
       - Description:
