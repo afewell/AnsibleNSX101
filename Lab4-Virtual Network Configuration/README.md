@@ -186,11 +186,11 @@ In this section you will prepare and execute a playbook that will create and pro
       datacenter_moid: "{{ vcenter_cluster_moid.datacenter_moid }}"
       mgmt_portgroup_moid: "{{ vcenter_portgroup_moid.object_id }}"
       interfaces:
-        - {name: 'Uplink_vnic', ip: '192.168.0.4', prefix_len: 24, logical_switch: 'TransitLS', iftype: 'uplink'}
+        - {name: 'Uplink_vnic', ip: '192.168.101.4', prefix_len: 24, logical_switch: 'TransitLS', iftype: 'uplink'}
         - {name: 'WebLS_iface', ip: '172.16.10.1', prefix_len: 24, logical_switch: 'WebLS', iftype: 'internal'}
         - {name: 'AppLS_iface', ip: '172.16.20.1', prefix_len: 24, logical_switch: 'AppLS', iftype: 'internal'}
         - {name: 'DBLS_iface', ip: '172.16.30.1', prefix_len: 24, logical_switch: 'DBLS', iftype: 'internal'}
-      default_gateway: '192.168.100.1'
+      default_gateway: '192.168.101.1'
       remote_access: 'true'
       username: 'admin'
       password: 'VMware1!VMware1!'
