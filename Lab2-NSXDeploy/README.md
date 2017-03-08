@@ -2,7 +2,6 @@
 Lab 2 provides instructions on using Ansible to deploy NSX Manager and register it with SSO and vCenter. To complete this section, you will need to provide your own licensed access to NSX Manager software. The reference lab and OneCloud vApps for this course use VMware-NSX-Manager-6.2.5-4818372. These instructions may also work with other versions of NSX Manager, however please note the lab materials in this course were developed and tested using only the versions of the software specified.
 
 This Lab includes the following sections:
-
 - [Prerequisites](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#prerequisites)
 - [Deploy NSX Manager](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#deploy-nsx-manager)
 - [Register NSX Manager with vCenter](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-vcenter)
@@ -13,7 +12,7 @@ Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansib
 ## Prerequisites
 - Prerequisites
   - __For OneCloud Users__
-      - [Video - Loading the Ansible NSX vApps in OneCloud]()
+<!--      - [Video - Loading the Ansible NSX vApps in OneCloud]() -->
       - If you load the vApp "AnsibleNSX_Prepped", this is the correct point to start with the lab exercises.
       - If you load the vApp "AnsibleNSX", you need to complete Lab-1d prior to starting this section
   - __For All Other Users__
@@ -22,6 +21,8 @@ Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansib
     - Save NSX Manager OVA on the AnsibleCS Server home directory
 
 ## Deploy NSX Manager
+[Click here to see a video walk-through of this section](https://youtu.be/OfaAWA8s5h4)
+
 ### About the playbook
 This section provides instructions to create and execute a playbook to deploy the NSX Manager virtual appliance. 
 - The NSX Manager virtual appliance can be deployed with a single task, using the `nsx_deploy_ova` module. 
@@ -108,6 +109,8 @@ vmware@vmware:~/nsxansible$
 
 
 ## Register NSX Manager with vCenter
+[Click here to see a video walk-through of this section](https://youtu.be/YwmLkjPUd6s)
+
 ### About the playbook
 After deploying the NSX Manager virtual appliance, you must register it with vCenter.
 - NSX Manager can be registered to vCenter with a single task, using the `nsx_vc_registration` module. 
@@ -199,6 +202,8 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ![registerVcenterVerify](Images/registerVcenterVerify.PNG)
 
 ## Register NSX Manager with the Single Sign-on Service
+[Click here to see a video walk-through of this section](https://youtu.be/WayxwS_4zZI)
+
 ### About the playbook
 In addition to registering NSX Manager with vCenter, it must also be registered with the vCenter Single Sign On service.
 - NSX Manager can be registered to vCenter Single Sign on with a single task, using the `nsx_sso_registration` module.

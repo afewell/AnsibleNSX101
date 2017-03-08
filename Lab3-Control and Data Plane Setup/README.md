@@ -10,6 +10,8 @@ This Lab includes the following sections:
 
 
 ## Creating NSX Controllers
+[Click here to see a video walk-through of this section](https://youtu.be/hd71nKuOIdw)
+
 ### About The Playbook
 VMware NSX uses controllers to manage and synchronize data plane information for logical networks. Creating controllers requires several different steps. 
 
@@ -161,6 +163,8 @@ localhost                  : ok=5    changed=2    unreachable=0    failed=0
 ![controllerVerify](Images/controllerVerify.PNG)
 
 ## Preparing ESXi Hosts with VIB installation
+[Click here to see a video walk-through of this section](https://youtu.be/fen8DGVhHWc)
+
 ### About the playbook
 NSX distributed networking features are provided to each VM by services running in the hyperisor of each ESXi host. To enable these services, you must prepare ESXi hosts in the target environment by installing a vSphere Installation Bundle (VIB). 
 - Task 1: Gather vCenter Management Cluster MOID
@@ -238,6 +242,8 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ![vibVerify](Images/vibVerify.PNG)
 
 ## Configuring VTEPs
+[Click here to see a video walk-through of this section](https://youtu.be/vrK6pUQadwI)
+
 ### About the playbook
 NSX provides overlay networking tunnels to enable virtualized network services. To deliver these services, each participating ESXi host must be configured with a vxlan tunnel endpoint (VTEP) interface.  The previous step of installing NSX VIB files to prepare all ESXi hosts in the target environment MUST be done before attempting to configure VTEPs. 
 
@@ -366,6 +372,8 @@ vmware@vmware:~/nsxansible$
 ![vtepVerify](Images/vtepVerify.PNG)
 
 ## Creating Transport Zones
+[Click here to see a video walk-through of this section](https://youtu.be/BvOeU8jSqgw)
+
 ### About the playbook
 A transport zone controls which hosts a logical switch can reach and can span one or more vSphere clusters. 
 

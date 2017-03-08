@@ -17,6 +17,7 @@ This lab will go through each of the NSX Ansible Networking configuration module
 -->
 ## Logical Switching
 In this section, you will make a playbook to create each of the logical switches required to complete the Lab 4 Virtual Networking Topology. 
+[Click here to see a video walk-through of this section](https://youtu.be/vpUC7aRlNGI)
 
 ### About the playbook
 - An NSX Logical switch can be created with a single task
@@ -115,8 +116,9 @@ localhost                  : ok=4    changed=4    unreachable=0    failed=0
 ![lsVerify](Images/lsVerify.PNG)
 
 ## Distributed Routing
-
 Now that you have created the logical switches for the lab environment, you will need to implement routing services to enable IP connectivity between the logical switch subnets. In this section you will create a playbook to install and configure distributing routing services. 
+[Click here to see a video walk-through of this section](https://youtu.be/7qpv-5ABiW4)
+
 ### About the playbook
 In this section you will prepare and execute a playbook that will create and provide the basic configuration for an NSX Distributed Logical Router (DLR). This DLR will serve as the default gateway for virtual machines connected to the WebLS, AppLS and DBLS Logical Switches that you created in the previous section on [Logical Switching](). The DLR will also connect to the TransitLS Logical Switch created in the previous section, and it will use the TransitLS network to connect to an NSX Edge Services Gateway you will create in the next section. 
 
@@ -234,8 +236,8 @@ localhost                  : ok=4    changed=1    unreachable=0    failed=0
 ![dlrVerify](Images/dlrVerify.PNG)
 
 ## Edge Routing
-
 Now that you have created the logical switches for the lab environment, and a logical router to provide first-hop and east-west routing services, you will next create an edge services gateway and configure it to provide north-south routing services to serve as a gateway for traffic flows that go between the virtual and physical routing environments. 
+[Click here to see a video walk-through of this section](https://youtu.be/60Thzq3U884)
 
 ### About the playbook
 In this section you will create and provide the basic configuration for an NSX Edge Services Gateway (ESG). This ESG will serve as a gateway between the virtual and physical routing environments. 
@@ -243,7 +245,7 @@ In this section you will create and provide the basic configuration for an NSX E
 - The installation and configuration of the ESG requires several tasks that interact with multiple NSX Ansible modules. 
     - Tasks 1-3: Gather vCenter Moids
       - Description: 
-        - Before you can deploy a DLR with the `nsx-dlr` ansible module, you first need to gather the MOIDs for the resource pool or cluster, datacenter, datastore and management portgroup.  
+        - Before you can deploy an ESG with the `nsx-edge-router` ansible module, you first need to gather the MOIDs for the resource pool or cluster, datacenter, datastore and management portgroup.  
       - [Documentation for the vcenter_gather_moids module](https://github.com/vmware/nsxansible#module-vcenter_gather_moids)
     - Task 4: ESG Creation
       - Description:
@@ -360,6 +362,7 @@ localhost                  : ok=4    changed=1    unreachable=0    failed=0
 
 ## Dynamic Routing
 Now that you have created the logical switches for the lab environment and installed routers, you need to enable dynamic routing to allow the routers to learn new routes from adjacent routers. 
+[Click here to see a video walk-through of this section](https://youtu.be/SKDrpCTqNvs)
 
 ### About the playbook
 In this section you will prepare and execute a playbook that will configure OSPF routing on both the ESG & DLR Routers. The DLR will be configured to redistributed its directly connected networks (TransitLS, WebLS, AppLS and DBLS networks) into OSPF. The ESG will be configured to peer with the DLR and learn routes to the Logical Switch subnets. 
@@ -444,7 +447,10 @@ The ESG will also be configured to peer with another Northbound router (vpod_rou
 ```
 
 ### Run the Playbook
-
+- Run  the play and review results
+  - Return to your terminal session with the Ansible server
+    - `cd ~/nsxansible`
+    - `ansible-playbook -i hosts setupOspf.yml`
 - If the play completes successfully, you should see output similar to the following:
 ```
 vmware@vmware:~/nsxansible$ ansible-playbook -i hosts setupOspf.yml
