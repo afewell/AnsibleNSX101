@@ -409,9 +409,9 @@ The ESG will also be configured to peer with another Northbound router (vpod_rou
       nsxmanager_spec: "{{ nsxmanager_spec }}"
       state: present
       edge_name: 'ansibleDLR'
-      router_id: '192.168.101.2'
+      router_id: '192.168.101.4'
       default_originate: False
-      forwarding_address: '192.168.101.2'
+      forwarding_address: '192.168.101.4'
       protocol_address: '192.168.101.3'
       areas:
         - { area_id: 0 }
