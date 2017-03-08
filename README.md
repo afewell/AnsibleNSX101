@@ -1,12 +1,12 @@
 # Using Ansible with VMware NSX
 This repo provides an introductory overview of the [VMware NSX Modules for Ansible] (https://github.com/vmware/nsxansible).
-__Please Note:__ This training course is in the early stages of development so most information is not yet populated. I anticipate the first complete draft of all materials to be complete within a few weeks, so please check back!
+__Please Note:__ This training course is a spare-time project for me, and I could really use your help to find any typos/errors or input on where I could improve or update the materials. If you see anything that needs improvement, please submit an issue, I would be grateful! If you would like to contribute to the project all comers are welcome!
 
 ## Lab Guide
 - [Course Introduction](https://github.com/afewell/AnsibleNSX101#course-introduction)
 - [Lab 1 - Lab Setup](Lab1-LabPrep/)
 - [Lab 2 - NSX Deploy & Register](Lab2-NSXDeploy/)
-- [Lab 3 - Control & Data Plane Setup](Lab3-Control%and%Data%Plane%Setup/)
+- [Lab 3 - Control & Data Plane Setup](https://github.com/afewell/AnsibleNSX101/tree/master/Lab3-Control%20and%20Data%20Plane%20Setup)
 - [Lab 4 - Virtual Network Configuration](Lab4-Virtual%20Network%20Configuration/)
 
 This training module will focus primarily on hands-on examples and will provide the reader with step-by-step instructions to walk through installation and basic usage the [VMware NSX Modules for Ansible](https://github.com/vmware/nsxansible). Because this is primarily a hands-on course, users should ensure they have access to a lab environment with licensed access to the required software, as detailed in the [Lab Setup](https://github.com/afewell/AnsibleNSX101/tree/master/Lab1-LabPrep). This course does not provide access or licensing for any software.

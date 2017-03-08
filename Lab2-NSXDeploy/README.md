@@ -6,19 +6,23 @@ This Lab includes the following sections:
 - [Deploy NSX Manager](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#deploy-nsx-manager)
 - [Register NSX Manager with vCenter](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-vcenter)
 - [Register NSX Manger with vCenter Single Sign On](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#register-nsx-manager-with-the-single-sign-on-service)
-- [Enter NSX License in vCenter]()
+- [Enter NSX License in vCenter](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#enter-nsx-license-in-vcenter)
 
 Please check the [NSX Ansible page on Github](https://github.com/vmware/nsxansible) for any updates to the NSX Ansible Modules. The lab materials in this course were developed and tested using only the versions of the software specified. 
 ## Prerequisites
 - Prerequisites
   - __For OneCloud Users__
-<!--      - [Video - Loading the Ansible NSX vApps in OneCloud]() -->
       - If you load the vApp "AnsibleNSX_Prepped", this is the correct point to start with the lab exercises.
       - If you load the vApp "AnsibleNSX", you need to complete Lab-1d prior to starting this section
+         - Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog
+         -  If you do not have access to the Sandbox-SDDC partition, please open a ticket with the OneCloud support team to have the vApp moved to a partition you can access. 
+         - For OneCloud and vCloud Director users, to find the external IP address of the AnsibleCS server, open your vApp in vCloud Director and go to the networking tab, right click on the "vAppNet-single" network and select "Configure Services". Select the NAT tab to find the external IP addres
+         - __Note:__  After you power on the vApp, please wait ~10 minutes before starting the lab exercises for everything to boot and connect. This lab does not make use of the lab startup script so the watermark on the desktop will not indicate when the lab is ready. To verify lab readiness, open a web browser connection to the vSphere web client. Once you can log in successfully to the vSphere web client, the lab is ready to proceed.
   - __For All Other Users__
     - Complete Lab 1
     - Make sure there is an A record in the DNS server for the FQDN you would like to use for the NSX Manager server.
     - Save NSX Manager OVA on the AnsibleCS Server home directory
+<!--      - [Video - Loading the Ansible NSX vApps in OneCloud]() -->
 
 ## Deploy NSX Manager
 [Click here to see a video walk-through of this section](https://youtu.be/OfaAWA8s5h4)

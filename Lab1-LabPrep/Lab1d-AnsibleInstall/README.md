@@ -31,11 +31,11 @@ This section will provide step-by-step instructions on the installation and conf
   -  `sudo add-apt-repository ppa:ansible/ansible`
   -  `sudo apt-get update`
   -  `sudo apt-get install ansible`
--  Install [NSX RAML client]() (Required for NSX Ansible Module)
+-  Install [NSX RAML client](http://github.com/vmware/nsxramlclient) (Required for NSX Ansible Module)
   -  `sudo pip install nsxramlclient --upgrade`
--  Install [Python Client for vCenter]() (Required for NSX Ansible Module)
+-  Install [Python Client for vCenter](http://github.com/vmware/pyvmomi) (Required for NSX Ansible Module)
   -  `sudo pip install pyvmomi --upgrade`
--  Install [VMware OVF Tool]() (Required for NSX Ansible Module)
+-  Install [VMware OVF Tool](https://www.vmware.com/support/developer/ovf/) (Required for NSX Ansible Module)
   -  Download VMware OVF Tool and install on AnsibleCS Server. The reference lab used the Windows server to download OVF Tool from vmware.com, and used IIS on the windows server to transfer the OVF Tool file to the AnsibleCS server. It does not matter exactly how you get the OVF tool file to the AnsibleCS server as long as you get it there.
   - The following instructions assume the OVF Tool installer file and the MSX Manager virtual appliance are stored locally on the windows server and IIS has already been configured to share those files via HTTP. The following steps show how to transfer OVF tool from the Windows Server to the AnsibleCS server and then install it. Instructions on getting the OVF tool file and configuring IIS are not provided. It does not matter how you get the ovftool and NSX Manager files to the Ansible server so long as you get them there. 
   - OneCloud Users can follow the following instructions exactly, for others you may use this as a reference, be sure to change any variables for your own environment as needed.
