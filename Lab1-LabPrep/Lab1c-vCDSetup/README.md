@@ -8,7 +8,7 @@ This section does not include instructions on creating the vApp Template used fo
 
 __Note:__ If you cannot setup direct IP access from your terminal to the Windows or Ansible servers, you can use the remote terminal access provided by vCloud director. The only inbound NAT services used in the reference lab are for remote access. The Ansible and Windows servers will need internet access to download required files and software, however this can be done with standard PAT and would not require an inbound NAT service or an externally routeable IP Address. If you are configuring your lab in accordance with this note, you may skip this section and simply ensure that the Ansible and Windows servers have outbound internet access.
 
-![Nested Virtual-Physical Layer Topology](../Lab1a-TopologyReview/Images/Lab1a-VirtualPhysicalTopology1.PNG)
+![Nested Virtual-Physical Layer Topology](https://github.com/afewell/AnsibleNSX101/blob/master/Lab1-LabPrep/Lab1a-TopologyReview/Images/Lab1a-VirtualPhysicalTopology1.png)
 
 As shown in the above image, each of the hosts in the virtual-physical layer is connected to a single network segment named "vAppNet-single". In the image, the small blue circle with an X in it located directly to the right of "vAppNet Single", represents an edge gatway service provided by vCloud director.
 
