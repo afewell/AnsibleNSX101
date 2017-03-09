@@ -5,6 +5,7 @@ __Please Note:__ This training course is a spare-time project for me, and I coul
 
 ## Lab Guide
 - [Course Introduction](https://github.com/afewell/AnsibleNSX101#course-introduction)
+  - [Where to get started](https://github.com/afewell/AnsibleNSX101#getting-started)
 - [Lab 1 - Lab Setup](Lab1-LabPrep/)
 - [Lab 2 - NSX Deploy & Register](Lab2-NSXDeploy/)
 - [Lab 3 - Control & Data Plane Setup](https://github.com/afewell/AnsibleNSX101/tree/master/Lab3-Control%20and%20Data%20Plane%20Setup)
