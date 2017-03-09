@@ -7,7 +7,7 @@ This Lab includes the following sections:
 - [Logical Switching](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#logical-switching)
 - [Distributed Router Deployment](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#distributed-routing)
 - [Edge Router Deployment](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#edge-routing)
-- [Dynamic Routing Configuration]()
+- [Dynamic Routing Configuration](https://github.com/afewell/AnsibleNSX101/tree/master/Lab4-Virtual%20Network%20Configuration#dynamic-routing)
 
 <!---
 ## Virtual Network Topology

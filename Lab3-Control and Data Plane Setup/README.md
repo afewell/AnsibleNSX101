@@ -159,7 +159,7 @@ localhost                  : ok=5    changed=2    unreachable=0    failed=0
   - Verify Controller Deployment
     - From the vSphere web client home page, navigate to the "Networking & Security" Section
     - Click the "Installation" tab on the left Navigator bar
-    - In the "NSX Controller Nodes" Section, you should see 3 controllers listed
+    - In the "NSX Controller Nodes" Section, you should see 1 controller listed
 ![controllerVerify](Images/controllerVerify.PNG)
 
 ## Preparing ESXi Hosts with VIB installation

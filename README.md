@@ -11,6 +11,8 @@ __Please Note:__ This training course is a spare-time project for me, and I coul
 
 This training module will focus primarily on hands-on examples and will provide the reader with step-by-step instructions to walk through installation and basic usage the [VMware NSX Modules for Ansible](https://github.com/vmware/nsxansible). Because this is primarily a hands-on course, users should ensure they have access to a lab environment with licensed access to the required software, as detailed in the [Lab Setup](https://github.com/afewell/AnsibleNSX101/tree/master/Lab1-LabPrep). This course does not provide access or licensing for any software.
 
+Please Note: This course is open to community contribution. All material on this site should be considered as the effort of the individual contributor and does not represent any opinion, assurance or warranty from the contributors or their respective employers. The original course material was provided by Arthur Fewell, who is a vmware employee but whose contributions are his own and do not officially represent VMware. This course is produced independently from VMWare and does not represent any official position, opinion, assurance or warranty from VMware. 
+
 ## Course Introduction
 ## Prerequisites
 1. Before taking this training, you should have a good technical understanding of VMware NSX. The course will cover using Ansible to perform installation, setup and basic operational configuration of NSX and assumes users already understands the concepts behind these operations. 
