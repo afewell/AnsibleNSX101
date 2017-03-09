@@ -14,7 +14,7 @@ As shown in the above image, each of the hosts in the virtual-physical layer is 
 
 1. After creation of the vApp template, ensure the vAppNet-single network is connected to an external network with NAT enabled and firewall services disabled, as shown in the following image:
   -  ![vCloud Director Network Settings](Images/VcdNetworks.PNG)
-2. NAT should be configured to enable PAT addressing for any internal host accessing external networks(enabled by default when you turn on NAT), and configured to provide a one-to-one NAT to enable the Main Console and AnsibleCS servers to be reached from external networks, as shown in the image below:
+2. NAT should be configured  to provide a one-to-one NAT to enable the Main Console and AnsibleCS servers to be reached from external networks, as shown in the image below:
   -  ![vCloud Director NAT Settings](Images/VcdNatSettings.PNG)
 3. On the AnsibleCS server:
   -  The AnsibleCS server is configured with a NIC on the 192.168.0.0/24 network to enable NAT translation and external (inbound) network access, and with a 192.168.110.0/24 network address for packet forwarding within the local lab environment.
