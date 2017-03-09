@@ -1,5 +1,6 @@
 # Using Ansible with VMware NSX
 This repo provides an introductory overview of the [VMware NSX Modules for Ansible] (https://github.com/vmware/nsxansible).
+
 __Please Note:__ This training course is a spare-time project for me, and I could really use your help to find any typos/errors or input on where I could improve or update the materials. If you see anything that needs improvement, please submit an issue, I would be grateful! If you would like to contribute to the project all comers are welcome!
 
 ## Lab Guide
