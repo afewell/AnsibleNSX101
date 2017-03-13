@@ -66,7 +66,7 @@ This section provides instructions to create and execute a playbook to deploy th
       netmask: '255.255.255.0'
       admin_password: 'VMware1!'
       enable_password: 'VMware1!'
-      path_to_ova: '~/'
+      path_to_ova: '/home/vmware/'
       ova_file: 'nsxmanager.ova'
       vcenter: 'vcsa-01a.corp.local'
       vcenter_user: 'administrator@corp.local'
