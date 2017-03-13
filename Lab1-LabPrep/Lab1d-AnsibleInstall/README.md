@@ -25,12 +25,12 @@ This section will provide step-by-step instructions on the installation and conf
   - `sudo apt-get update -y && sudo apt-get upgrade -y`
 -  Install required dependencies for Ansible & NSX Ansible Modules
   -  `sudo apt-get install python python-dev python-pip -y`
-  -  `sudo apt-get install build-essential libssl-dev libffi-dev libxml2-dev libxslt-dev python-dev zlib1g-dev python-openssl`
+  -  `sudo apt-get install build-essential libssl-dev libffi-dev libxml2-dev libxslt-dev python-dev zlib1g-dev python-openssl -y`
 -  Add Ansible Personal Package Archive and Install Ansible
-  -  `sudo apt-get install software-properties-common`
+  -  `sudo apt-get install software-properties-common -y`
   -  `sudo add-apt-repository ppa:ansible/ansible`
-  -  `sudo apt-get update`
-  -  `sudo apt-get install ansible`
+  -  `sudo apt-get update -y`
+  -  `sudo apt-get install ansible -y`
 -  Install [NSX RAML client](http://github.com/vmware/nsxramlclient) (Required for NSX Ansible Module)
   -  `sudo pip install nsxramlclient --upgrade`
 -  Install [Python Client for vCenter](http://github.com/vmware/pyvmomi) (Required for NSX Ansible Module)
@@ -52,6 +52,9 @@ This section will provide step-by-step instructions on the installation and conf
    -  `cd ~`
    -  `sudo git clone https://github.com/vmware/nsxraml`
    -  `sudo git clone https://github.com/vmware/nsxansible`
+-  Assign ownership of the ~/nsxansible directory to your account
+   -  `cd ~`
+   -  `sudo chown nsxansible/`
 
 ### Prepare the NSX Ansible Environment
 - Prepare the NSX Ansible environment
@@ -65,8 +68,8 @@ This section will provide step-by-step instructions on the installation and conf
       - Username: `vmware`
       - Password: `VMware1!`
     - `cd ~/nsxansible`
-    - `sudo mkdir ~/nsxansible/examples`
-    - `sudo mv *.yml ~/nsxansible/examples/`
+    - `mkdir ~/nsxansible/examples`
+    - `mv *.yml ~/nsxansible/examples/`
     - Now if you execute an `ls` you should see only a few files in the ~/nsxansible directory
     - Verify the hosts file
     - `cat ~/nsxansible/hosts`
@@ -86,7 +89,7 @@ This section will provide step-by-step instructions on the installation and conf
   - In this exercise you need to use a text editor to create a file. I use vi editor, if you are newer to Linux you may prefer to use the gedit text editor, which you can do by simply replacing any reference in these instructions to `vi` with `gedit`. Or you can use any text editor you prefer. 
   - Create an answerfile.yml file
     - `cd ~/nsxansible/`
-    - `sudo vi answerfile.yml`
+    - `vi answerfile.yml`
   - Edit the file to look like this - making sure to change any variables that are different in your environment:
     ```
     nsxmanager_spec:
