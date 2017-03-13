@@ -6,10 +6,10 @@ This section will provide step-by-step instructions on the installation and conf
 -  You should be able to establish a remote desktop connection to the Main Console/Windows Server.
 -  You should be able to establish an SSH session to the AnsibleCS server
 -  The Windows and AnsibleCS servers should have internet access
--  You should have IP reachability between all hosts on the labs internal management (192.168.110.0/24) network
+-  You should have IP reachability between all hosts on the labs internal management (192.168.110.0/24) network from the Ansible control server.
 
 ### VMware Employees using OneCloud:
-  -  A vApp named "AnsibleNSX" is available in OneCloud that is preloaded with all configurations provided in labs 1a-1c allowing you to start here with lab-1d which walks you through the installation and setup of the Ansible Control Server.
+  - A vApp named "AnsibleNSX" is available in OneCloud that is preloaded with all configurations provided in labs 1a-1c allowing you to start here with lab-1d which walks you through the installation and setup of the Ansible Control Server. **Please Note:** the AnsibleNSX  vApp is experiencing issues. For now please use the "AnsibleNsx_Prepped" vApp. The site will be updated once the problem is fixed.
   - If you would like to skip Ansible installation and proceed directly to using the NSX Ansible modules, another vApp called "AnsibleNSX_prepped" is available. If you load this vApp, you can [proceed directly to Lab-2](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#prerequisites)
   - Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog
   -  If you do not have access to the Sandbox-SDDC partition, please open a ticket with the OneCloud support team to have the vApp moved to a partition you can access. 
@@ -47,7 +47,7 @@ This section will provide step-by-step instructions on the installation and conf
     -  Accept license and follow prompts to complete installation
   - Download NSX Manger OVA File from the Windows (IIS) Server to the home directory:
     -  `cd ~`
-    -  `wget 192.168.110.10/nsxmanager.ova
+    -  `wget 192.168.110.10/nsxmanager.ova`
 - Clone the NSX Ansible and RAML repositories into your home directory
    -  `cd ~`
    -  `sudo git clone https://github.com/vmware/nsxraml`
@@ -64,9 +64,9 @@ This section will provide step-by-step instructions on the installation and conf
     - Open a terminal or ssh connection to the Ansible control server
       - Username: `vmware`
       - Password: `VMware1!`
-    - `cd ~/nsxansible
-    - `mkdir ~/nsxansible/examples`
-    - `mv *.yml ~/nsxansible/examples/`
+    - `cd ~/nsxansible`
+    - `sudo mkdir ~/nsxansible/examples`
+    - `sudo mv *.yml ~/nsxansible/examples/`
     - Now if you execute an `ls` you should see only a few files in the ~/nsxansible directory
     - Verify the hosts file
     - `cat ~/nsxansible/hosts`
@@ -86,7 +86,7 @@ This section will provide step-by-step instructions on the installation and conf
   - In this exercise you need to use a text editor to create a file. I use vi editor, if you are newer to Linux you may prefer to use the gedit text editor, which you can do by simply replacing any reference in these instructions to `vi` with `gedit`. Or you can use any text editor you prefer. 
   - Create an answerfile.yml file
     - `cd ~/nsxansible/`
-    - `vi answerfile.yml`
+    - `sudo vi answerfile.yml`
   - Edit the file to look like this - making sure to change any variables that are different in your environment:
     ```
     nsxmanager_spec:
