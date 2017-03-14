@@ -9,7 +9,8 @@ This section will provide step-by-step instructions on the installation and conf
 -  You should have IP reachability between all hosts on the labs internal management (192.168.110.0/24) network from the Ansible control server.
 
 ### VMware Employees using OneCloud:
-  - A vApp named "AnsibleNSX" is available in OneCloud that is preloaded with all configurations provided in labs 1a-1c allowing you to start here with lab-1d which walks you through the installation and setup of the Ansible Control Server. **Please Note:** the AnsibleNSX  vApp is experiencing issues. For now please use the "AnsibleNsx_Prepped" vApp. The site will be updated once the problem is fixed.
+  - **Please Note: the AnsibleNSX  vApp is experiencing issues. For now please use the "AnsibleNsx_Prepped" vApp. The site will be updated once the problem is fixed.**
+  - A vApp named "AnsibleNSX" is available in OneCloud that is preloaded with all configurations provided in labs 1a-1c allowing you to start here with lab-1d which walks you through the installation and setup of the Ansible Control Server. 
   - If you would like to skip Ansible installation and proceed directly to using the NSX Ansible modules, another vApp called "AnsibleNSX_prepped" is available. If you load this vApp, you can [proceed directly to Lab-2](https://github.com/afewell/AnsibleNSX101/tree/master/Lab2-NSXDeploy#prerequisites)
   - Both of these vApp Templates are located in the "US01-5 Sandbox-SDDC Internal" catalog
   -  If you do not have access to the Sandbox-SDDC partition, please open a ticket with the OneCloud support team to have the vApp moved to a partition you can access. 
